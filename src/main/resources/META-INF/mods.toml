@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[30,)"
+issueTrackerURL="https://github.com/ArcAnc/Nedaire/issues/"
+[[mods]]
+modId="nedaire"
+version="0.01"
+displayName="Nedaire"
+displayURL="https://github.com/ArcAnc/Nedaire"
+logoFile="nedaire.png"
+credits="Just thanks, nothing more"
+authors="Ancient, Cristal"
+description='''
+I'm just want to write description!
+'''
+[[dependencies.nedaire]]
+    modId="forge"
+    mandatory=true
+    versionRange="[30,)" 
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.nedaire]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
+    ordering="NONE"
+    side="BOTH"

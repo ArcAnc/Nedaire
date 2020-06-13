@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nedaire:conversion/nugget/silver_to_ingot/silver"
+    ]
+  },
+  "criteria": {
+    "has_nugget_silver": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:nuggets/silver"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nedaire:conversion/nugget/silver_to_ingot/silver"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_nugget_silver",
+      "has_the_recipe"
+    ]
+  ]
+}

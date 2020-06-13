@@ -1,0 +1,6 @@
+{
+    "parent": "nedaire:item/weapon/bow/silver",
+    "textures": {
+        "layer0": "nedaire:item/weapon/bow/silver_0"
+    }
+}

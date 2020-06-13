@@ -1,0 +1,17 @@
+{
+    "parent": "item/handheld_rod",
+    "textures": 
+	{
+        "layer0": "nedaire:item/tool/fishing_rod/iridium"
+    },
+    "overrides": 
+	[
+        {
+            "predicate": 
+			{
+                "cast": 1
+            },
+            "model": "nedaire:item/tool/fishing_rod/iridium_cast"
+        }
+    ]
+}

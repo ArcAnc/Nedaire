@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nedaire:tool/pickaxe/silver"
+    ]
+  },
+  "criteria": {
+    "has_ingots/silver": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/silver"
+          }
+        ]
+      }
+    },
+    "has_rods/wooden": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:rods/wooden"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nedaire:tool/pickaxe/silver"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ingots/silver",
+      "has_rods/wooden",
+      "has_the_recipe"
+    ]
+  ]
+}

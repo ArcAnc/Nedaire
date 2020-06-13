@@ -1,0 +1,179 @@
+{
+	"___comment": "ITEMGROUPS/TABS",
+	
+	"nedaire.itemGroup.main": "Nedaire",
+	
+	"___comment": "ITEMS",
+	"nedaire.ingot.cobalt": "Cobalt Ingot",
+	"nedaire.ingot.iridium": "Iridium Ingot",
+	"nedaire.ingot.silver": "Silver Ingot",
+	
+	"nedaire.nugget.cobalt": "Cobalt Nugget",
+	"nedaire.nugget.iridium": "Iridium Nugget",
+	"nedaire.nugget.silver": "Silver Nugget",
+	
+	"nedaire.dust.cobalt": "Cobalt Dust",
+	"nedaire.dust.iridium": "Iridium Dust",
+	"nedaire.dust.silver": "Silver Dust",
+	
+	"nedaire.fragment.cobalt": "Cobalt Fragment",
+	"nedaire.fragment.iridium": "Iridium Fragment",
+	"nedaire.fragment.silver": "Silver Fragment",
+	
+	"nedaire.tool.axe.cobalt": "Cobalt Axe",
+	"nedaire.tool.axe.iridium": "Iridium Axe",
+	"nedaire.tool.axe.silver": "Silver Axe",
+	
+	"nedaire.tool.pickaxe.cobalt": "Cobalt Pickaxe",
+	"nedaire.tool.pickaxe.iridium": "Iridium Pickaxe",
+	"nedaire.tool.pickaxe.silver": "Silver Pickaxe",
+	
+	"nedaire.tool.hoe.cobalt": "Cobalt Hoe",
+	"nedaire.tool.hoe.iridium": "Iridium Hoe",
+	"nedaire.tool.hoe.silver": "Silver Hoe",
+
+	"nedaire.tool.shovel.cobalt": "Cobalt Shovel",
+	"nedaire.tool.shovel.iridium": "Iridium Shovel",
+	"nedaire.tool.shovel.silver": "Silver Shovel",
+
+	"nedaire.tool.shears.cobalt": "Cobalt Shears",
+	"nedaire.tool.shears.iridium": "Iridium Shears",
+	"nedaire.tool.shears.silver": "Silver Shears",
+
+	"nedaire.tool.fishing_rod.cobalt": "Cobalt Fishing Rod",
+	"nedaire.tool.fishing_rod.iridium": "Iridium Fishing Rod",
+	"nedaire.tool.fishing_rod.silver": "Silver Fishing Rod",
+	
+	"nedaire.weapon.sword.cobalt": "Cobalt Sword",
+	"nedaire.weapon.sword.iridium": "Iridium Sword",
+	"nedaire.weapon.sword.silver": "Silver Sword",
+	
+	"nedaire.weapon.shield.cobalt": "Cobalt Shield",
+	"nedaire.weapon.shield.iridium": "Iridium Shield",
+	"nedaire.weapon.shield.silver": "Silver Shield",
+
+	"nedaire.weapon.bow.cobalt": "Cobalt Bow",
+	"nedaire.weapon.bow.iridium": "Iridium Bow",
+	"nedaire.weapon.bow.silver": "Silver Bow",
+
+	"nedaire.armor.horse.cobalt": "Cobalt Horse Armor",
+	"nedaire.armor.horse.iridium": "Iridium Horse Armor",
+	"nedaire.armor.horse.silver": "Silver Horse Armor",
+
+	"nedaire.armor.player.head.cobalt": "Cobalt Helmet",
+	"nedaire.armor.player.head.iridium": "Iridium Helmet",
+	"nedaire.armor.player.head.silver": "Silver Helmet",
+	
+	"nedaire.armor.player.chest.cobalt": "Cobalt Chestplate",
+	"nedaire.armor.player.chest.iridium": "Iridium Chestplate",
+	"nedaire.armor.player.chest.silver": "Silver Chestplate",
+	
+	"nedaire.armor.player.legs.cobalt": "Cobalt Leggings",
+	"nedaire.armor.player.legs.iridium": "Iridium Leggings",
+	"nedaire.armor.player.legs.silver": "Silver Leggings",
+	
+	"nedaire.armor.player.feet.cobalt": "Cobalt Boots",
+	"nedaire.armor.player.feet.iridium": "Iridium Boots",
+	"nedaire.armor.player.feet.silver": "Silver Boots",
+	
+	"nedaire.gem_faceted_white": "White Faceted Gem",
+	"nedaire.gem_faceted_yellow": "Yellow Faceted Gem",
+	"nedaire.gem_faceted_cyan": "Cyan Faceted Gem",
+	"nedaire.gem_faceted_purple": "Purple Faceted Gem",
+	"nedaire.gem_faceted_blue": "Blue Faceted Gem",
+	"nedaire.gem_faceted_green": "Green Faceted Gem",
+	"nedaire.gem_faceted_red": "Red Faceted Gem",
+	"nedaire.gem_faceted_black": "Black Faceted Gem",
+
+	"nedaire.dye_white": "White Dye",
+	"nedaire.dye_yellow": "Yellow Dye",
+	"nedaire.dye_cyan": "Cyan Dye",
+	"nedaire.dye_purple": "Purple Dye",
+	"nedaire.dye_blue": "Blue Dye",
+	"nedaire.dye_green": "Green Dye",
+	"nedaire.dye_red": "Red Dye",
+	"nedaire.dye_black": "Black Dye",
+	
+	"nedaire.gem_effect_white.description": "+%f%% knockback resistance",
+	"nedaire.gem_effect_yellow.description": "+%f%% armor toughness",
+	"nedaire.gem_effect_blue.description": "+%f armor",
+	"nedaire.gem_effect_green.description": "+%f%% attack speed",
+	"nedaire.gem_effect_red.description": "+%f health",
+	"nedaire.gem_effect_black.description": "+%f damage",
+	
+	"nedaire.gem_uncut_white": "White Uncut Gem",
+	"nedaire.gem_uncut_yellow": "Yellow Uncut Gem",
+	"nedaire.gem_uncut_cyan": "Cyan Uncut Gem",
+	"nedaire.gem_uncut_purple": "Purple Uncut Gem",
+	"nedaire.gem_uncut_blue": "Blue Uncut Gem",
+	"nedaire.gem_uncut_green": "Green Uncut Gem",
+	"nedaire.gem_uncut_red": "Red Uncut Gem",
+	"nedaire.gem_uncut_black": "Black Uncut Gem",
+
+	"nedaire.gem_meta_faceted_white": "White Meta Gem",
+	"nedaire.gem_meta_faceted_yellow": "Yellow Meta Gem",
+	"nedaire.gem_meta_faceted_cyan": "Cyan Meta Gem",
+	"nedaire.gem_meta_faceted_purple": "Purple Meta Gem",
+	"nedaire.gem_meta_faceted_blue": "Blue Meta Gem",
+	"nedaire.gem_meta_faceted_green": "Green Meta Gem",
+	"nedaire.gem_meta_faceted_red": "Red Meta Gem",
+	"nedaire.gem_meta_faceted_black": "Black Meta Gem",
+
+	"nedaire.gem_meta_uncut_white": "White Meta Uncut Gem",
+	"nedaire.gem_meta_uncut_yellow": "Yellow Meta Uncut Gem",
+	"nedaire.gem_meta_uncut_cyan": "Cyan Meta Uncut Gem",
+	"nedaire.gem_meta_uncut_purple": "Purple Meta Uncut Gem",
+	"nedaire.gem_meta_uncut_blue": "Blue Meta Uncut Gem",
+	"nedaire.gem_meta_uncut_green": "Green Meta Uncut Gem",
+	"nedaire.gem_meta_uncut_red": "Red Meta Uncut Gem",
+	"nedaire.gem_meta_uncut_black": "Black Meta Uncut Gem",
+
+	"nedaire.gem.description.slot" : "Can be placed in: ",
+	
+	"nedaire.gem_handler.meta_slot.name" : "Meta Slots",
+	"nedaire.gem_handler.standart_slot.name" : "Standart Slots",
+
+	
+	"___comment": "BLOCKS",
+	
+	"nedaire.storage_block_silver": "Silver Block",
+	"nedaire.storage_block_cobalt": "Cobalt Block",
+	"nedaire.storage_block_iridium": "Iridium Block",
+	
+	"nedaire.ore_silver_overworld": "Silver Ore",
+	"nedaire.ore_cobalt_overworld": "Cobalt Ore",
+	"nedaire.ore_iridium_overworld": "Iridium Ore",
+	
+	"nedaire.ore_silver_nether": "Fiery Silver Ore",
+	"nedaire.ore_cobalt_nether": "Fiery Cobalt Ore",
+	"nedaire.ore_iridium_nether": "Fiery Iridium Ore",
+
+	"nedaire.ore_silver_end": "Ender Silver Ore",
+	"nedaire.ore_cobalt_end": "Ender Cobalt Ore",
+	"nedaire.ore_iridium_end": "Ender Iridium Ore",
+	
+	
+	"nedaire.cooker" : "Cooker",
+	"nedaire.grinder": "Grinder",
+	"nedaire.blast_furnace" : "Blast Furnace",
+	
+	"___comment": "Capabilities",
+	
+	"nedaire.energon.description" : "%d/%d Energon",
+	
+	"___comment": "Descriptions",
+	
+	"nedaire.icon_whitelist.description": "Only items which placed in filter slots will be transfered",
+	"nedaire.icon_blacklist.description": "Only items which not placed in filter slots will be transfered",
+
+	"nedaire.icon_tag.description": "Only items which has same tags with items in filter slots will be transfered",
+	"nedaire.icon_tag_off.description": "Will ignore same tags",
+	
+	"nedaire.icon_mod_owner.description": "Only items which has same mod owner with items placed in filter slots will be transfered",
+	"nedaire.icon_mod_owner_off.description": "Will ignore same mod owner",
+
+	"nedaire.icon_nbt.description": "Only items which has same nbt tag with placed in filter slots will be transfered",
+	"nedaire.icon_nbt_off.description": "Will ignore nbt"
+
+	
+}

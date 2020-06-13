@@ -1,0 +1,48 @@
+{
+    "parent": "item/crossbow",
+    "textures": 
+    {
+        "layer0": "nedaire:item/weapon/crossbow/iridium"
+    },
+    "overrides": 
+	[
+        {
+            "predicate": 
+			{
+                "pulling": 1
+            },
+            "model": "nedaire:item/weapon/crossbow/iridium_0"
+        },
+        {
+            "predicate": 
+			{
+                "pulling": 1,
+                "pull": 0.58
+            },
+            "model": "nedaire:item/weapon/crossbow/iridium_1"
+        },
+        {
+            "predicate": 
+			{
+                "pulling": 1,
+                "pull": 1.0
+            },
+            "model": "nedaire:item/weapon/crossbow/iridium_2"
+        },
+        {
+            "predicate": 
+			{
+                "charged": 1
+            },
+            "model": "nedaire:item/weapon/crossbow/iridium_arrow"
+        },
+        {
+            "predicate": 
+			{
+                "charged": 1,
+                "firework": 1
+            },
+            "model": "nedaire:item/weapon/crossbow/iridium_firework"
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nedaire:tool/fishing_rod/cobalt"
+    ]
+  },
+  "criteria": {
+    "has_ingots/cobalt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/cobalt"
+          }
+        ]
+      }
+    },
+    "has_string": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:string"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nedaire:tool/fishing_rod/cobalt"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ingots/cobalt",
+      "has_string",
+      "has_the_recipe"
+    ]
+  ]
+}

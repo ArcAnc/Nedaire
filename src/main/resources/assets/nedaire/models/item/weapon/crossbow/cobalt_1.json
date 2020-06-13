@@ -1,0 +1,6 @@
+{
+    "parent": "nedaire:item/weapon/crossbow/cobalt",
+    "textures": {
+        "layer0": "nedaire:item/weapon/crossbow/cobalt_1"
+    }
+}

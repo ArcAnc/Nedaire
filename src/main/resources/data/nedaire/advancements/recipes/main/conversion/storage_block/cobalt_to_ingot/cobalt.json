@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nedaire:conversion/storage_block/cobalt_to_ingot/cobalt"
+    ]
+  },
+  "criteria": {
+    "has_storage_block_cobalt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:storage_blocks/cobalt"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nedaire:conversion/storage_block/cobalt_to_ingot/cobalt"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_storage_block_cobalt",
+      "has_the_recipe"
+    ]
+  ]
+}

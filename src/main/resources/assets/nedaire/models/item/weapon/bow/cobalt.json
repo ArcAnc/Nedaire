@@ -1,0 +1,33 @@
+{
+    "parent": "item/bow",
+    "textures": 
+    {
+        "layer0": "nedaire:item/weapon/bow/cobalt"
+    },
+    "overrides": 
+    [
+        {
+            "predicate": 
+			{
+                "pulling": 1
+            },
+            "model": "nedaire:item/weapon/bow/cobalt_0"
+        },
+        {
+            "predicate": 
+			{
+                "pulling": 1,
+                "pull": 0.65
+            },
+            "model": "nedaire:item/weapon/bow/cobalt_1"
+        },
+        {
+            "predicate": 
+			{
+                "pulling": 1,
+                "pull": 0.9
+            },
+            "model": "nedaire:item/weapon/bow/cobalt_2"
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nedaire:conversion/storage_block/silver_to_ingot/silver"
+    ]
+  },
+  "criteria": {
+    "has_storage_block_silver": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:storage_blocks/silver"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nedaire:conversion/storage_block/silver_to_ingot/silver"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_storage_block_silver",
+      "has_the_recipe"
+    ]
+  ]
+}

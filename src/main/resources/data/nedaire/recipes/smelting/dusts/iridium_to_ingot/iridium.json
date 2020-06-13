@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "forge:dusts/iridium"
+  },
+  "result": "nedaire:ingot/iridium",
+  "experience": 0.0,
+  "cookingtime": 200
+}

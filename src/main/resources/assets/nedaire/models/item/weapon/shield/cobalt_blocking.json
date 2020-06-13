@@ -1,0 +1,7 @@
+{
+	"parent": "nedaire:item/weapon/shield/shield_blocking",
+	"textures": 
+	{
+		"all": "nedaire:item/weapon/shield/cobalt"
+	}
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "nedaire:item/tool/fishing_rod/silver",
+    "textures": {
+        "layer0": "nedaire:item/tool/fishing_rod/silver_cast"
+    }
+}

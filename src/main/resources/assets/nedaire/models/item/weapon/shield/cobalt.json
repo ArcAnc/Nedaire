@@ -1,0 +1,18 @@
+{
+	"parent": "nedaire:item/weapon/shield/shield",
+	"textures": 
+	{
+		"all": "nedaire:item/weapon/shield/cobalt"
+	},
+
+	"overrides": 
+	[
+	{
+		"predicate": 
+		{
+			"blocking": 1
+		},
+		"model": "nedaire:item/weapon/shield/cobalt_blocking"
+	}
+	]
+}

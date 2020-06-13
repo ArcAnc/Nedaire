@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nedaire:weapon/shield/iridium"
+    ]
+  },
+  "criteria": {
+    "has_ingots/iridium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/iridium"
+          }
+        ]
+      }
+    },
+    "has_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nedaire:weapon/shield/iridium"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ingots/iridium",
+      "has_planks",
+      "has_the_recipe"
+    ]
+  ]
+}
