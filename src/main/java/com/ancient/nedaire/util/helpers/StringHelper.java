@@ -30,6 +30,20 @@ public class StringHelper
 		return strings[0];
 	}
 	
+	public static final String slashPlacer(String name, String... path )
+	{
+		String s = "";
+		
+		for (int i = 0; i < path.length; i++)
+		{
+			s = s + path[i] + "/"; 
+		}
+		
+		s += name;
+		
+		return s;
+	}
+	
 	public static String firstUpperCase(String s)
 	{
 		return s.toLowerCase().substring(0,1).toUpperCase() + s.toLowerCase().substring(1);

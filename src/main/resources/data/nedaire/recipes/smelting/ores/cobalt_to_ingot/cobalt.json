@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "forge:ores/cobalt"
+  },
+  "result": "nedaire:ingot/cobalt",
+  "experience": 1.0,
+  "cookingtime": 200
+}

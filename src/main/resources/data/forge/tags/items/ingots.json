@@ -1,14 +1,8 @@
 {
   "replace": false,
   "values": [
-    "#forge:ingots/iridium",
-    "#forge:nuggets/iridium",
-    "#forge:dusts/iridium",
     "#forge:ingots/silver",
-    "#forge:nuggets/silver",
-    "#forge:dusts/silver",
     "#forge:ingots/cobalt",
-    "#forge:nuggets/cobalt",
-    "#forge:dusts/cobalt"
+    "#forge:ingots/iridium"
   ]
 }

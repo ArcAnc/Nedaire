@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nedaire:tool/shears/iridium"
+    ]
+  },
+  "criteria": {
+    "has_ingots/iridium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/iridium"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nedaire:tool/shears/iridium"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ingots/iridium",
+      "has_the_recipe"
+    ]
+  ]
+}

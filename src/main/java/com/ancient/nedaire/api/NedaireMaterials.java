@@ -12,21 +12,28 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import com.ancient.nedaire.content.blocks.NTileProviderBlock;
+import com.ancient.nedaire.content.blocks.tileEntities.NTileGrinder;
 import com.ancient.nedaire.content.materials.NComplexMaterial;
 import com.ancient.nedaire.content.materials.NComplexMaterial.NComplexMaterialProperties;
 import com.ancient.nedaire.util.database.NedaireDatabase;
+import com.ancient.nedaire.util.helpers.BlockHelper;
+import com.ancient.nedaire.util.helpers.StringHelper;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.item.Item;
 import net.minecraft.util.SoundEvents;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class NedaireMaterials 
 {
 	
-	public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<Block>(ForgeRegistries.BLOCKS, NedaireDatabase.MOD_ID);
-	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<Item>(ForgeRegistries.ITEMS, NedaireDatabase.MOD_ID);
+	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, NedaireDatabase.MOD_ID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, NedaireDatabase.MOD_ID);
 
 	
 	public static final NComplexMaterial SILVER = new NComplexMaterialProperties(NedaireDatabase.Materials.SILVER).
@@ -69,4 +76,9 @@ public class NedaireMaterials
 			create();
 
 	public static final Set<NComplexMaterial> MATERIALS = Stream.of(SILVER, COBALT, IRIDIUM).collect(Collectors.toSet());
+	
+	public static final RegistryObject<NTileProviderBlock<NTileGrinder>> GRINDER = BLOCKS.register(
+			StringHelper.slashPlacer(NedaireDatabase.Blocks.Names.Machines.GRINDER, NedaireDatabase.Blocks.Names.MACHINE), 
+			() -> BlockHelper.setRenderLayer(new NTileProviderBlock<NTileGrinder>(Block.Properties.create(Material.IRON), NTileGrinder :: new), 
+					RenderType.getCutout()));
 }

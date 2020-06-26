@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nedaire:weapon/shield/cobalt"
+    ]
+  },
+  "criteria": {
+    "has_ingots/cobalt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/cobalt"
+          }
+        ]
+      }
+    },
+    "has_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nedaire:weapon/shield/cobalt"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ingots/cobalt",
+      "has_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

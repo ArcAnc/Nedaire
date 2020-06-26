@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nedaire:tool/fishing_rod/iridium"
+    ]
+  },
+  "criteria": {
+    "has_ingots/iridium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/iridium"
+          }
+        ]
+      }
+    },
+    "has_string": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:string"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nedaire:tool/fishing_rod/iridium"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ingots/iridium",
+      "has_string",
+      "has_the_recipe"
+    ]
+  ]
+}

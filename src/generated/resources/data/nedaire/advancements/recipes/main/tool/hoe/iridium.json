@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nedaire:tool/hoe/iridium"
+    ]
+  },
+  "criteria": {
+    "has_ingots/iridium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/iridium"
+          }
+        ]
+      }
+    },
+    "has_rods/wooden": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:rods/wooden"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nedaire:tool/hoe/iridium"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ingots/iridium",
+      "has_rods/wooden",
+      "has_the_recipe"
+    ]
+  ]
+}

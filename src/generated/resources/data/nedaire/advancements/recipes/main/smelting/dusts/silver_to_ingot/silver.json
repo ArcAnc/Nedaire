@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nedaire:smelting/dusts/silver_to_ingot/silver"
+    ]
+  },
+  "criteria": {
+    "has_dusts/silver": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:dusts/silver"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nedaire:smelting/dusts/silver_to_ingot/silver"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dusts/silver",
+      "has_the_recipe"
+    ]
+  ]
+}

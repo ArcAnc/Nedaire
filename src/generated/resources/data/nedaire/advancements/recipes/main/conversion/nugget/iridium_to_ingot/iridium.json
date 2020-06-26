@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nedaire:conversion/nugget/iridium_to_ingot/iridium"
+    ]
+  },
+  "criteria": {
+    "has_nugget_iridium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:nuggets/iridium"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nedaire:conversion/nugget/iridium_to_ingot/iridium"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_nugget_iridium",
+      "has_the_recipe"
+    ]
+  ]
+}

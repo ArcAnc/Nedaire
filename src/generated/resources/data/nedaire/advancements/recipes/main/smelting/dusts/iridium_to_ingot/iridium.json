@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nedaire:smelting/dusts/iridium_to_ingot/iridium"
+    ]
+  },
+  "criteria": {
+    "has_dusts/iridium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:dusts/iridium"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nedaire:smelting/dusts/iridium_to_ingot/iridium"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dusts/iridium",
+      "has_the_recipe"
+    ]
+  ]
+}

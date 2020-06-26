@@ -30,6 +30,9 @@ public class NedaireBlockTagsProvider extends BlockTagsProvider
 		{
 			getBuilder(Tags.Blocks.STORAGE_BLOCKS).add(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getStorageBlock());
 			getBuilder(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getStorageBlock()).add(mat.getStorageBlock().get());
+
+			getBuilder(Tags.Blocks.ORES).add(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getOre());
+			getBuilder(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getOre()).add(mat.getOreBlock().get());
 		}
 	}
 	

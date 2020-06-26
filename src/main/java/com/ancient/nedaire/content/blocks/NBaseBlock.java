@@ -11,6 +11,8 @@ public class NBaseBlock extends Block
 	public NBaseBlock(Properties properties) 
 	{
 		super(properties);
+		
+		setRenderLayer(RenderType.getSolid());
 	}
 	
 	@Override

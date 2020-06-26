@@ -12,6 +12,7 @@ import java.util.function.Consumer;
 
 import com.ancient.nedaire.api.NedaireMaterials;
 import com.ancient.nedaire.content.materials.NComplexMaterial;
+import com.ancient.nedaire.data.recipes.builders.GrinderRecipeBuilder;
 import com.ancient.nedaire.util.database.NedaireDatabase;
 import com.ancient.nedaire.util.helpers.StringHelper;
 
@@ -22,6 +23,7 @@ import net.minecraft.data.RecipeProvider;
 import net.minecraft.data.ShapedRecipeBuilder;
 import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.Tag;
@@ -80,6 +82,9 @@ public class NedaireRecipesProvider extends RecipeProvider
 			addBlasting(NedaireTags.Items.MATERIALS.get(mat.getName()).getDust(), mat.getIngot().get(), 0.0f, out);
 			addSmelting(NedaireTags.Items.MATERIALS.get(mat.getName()).getDust(), mat.getIngot().get(), 0.0f, out);
 		
+			addBlasting(NedaireTags.Items.MATERIALS.get(mat.getName()).getOre(), mat.getIngot().get(), 1.0f, out);
+			addSmelting(NedaireTags.Items.MATERIALS.get(mat.getName()).getOre(), mat.getIngot().get(), 1.0f, out);
+			
 			//==========================
 			//Tools
 			//==========================
@@ -94,10 +99,16 @@ public class NedaireRecipesProvider extends RecipeProvider
 			//Armor
 			//==========================
 			addArmor(mat, out);
+			
 		}
-		
+
+		//==========================
+		// GrinderRecipes
+		//==========================
+		addGrinderRecipes(out);
 	}
 	
+
 	private void addBlasting (Tag<Item> input, Item output, float exp, Consumer<IFinishedRecipe> out)
 	{
 		CookingRecipeBuilder.blastingRecipe(Ingredient.fromTag(input), output, exp, 100).
@@ -264,6 +275,16 @@ public class NedaireRecipesProvider extends RecipeProvider
 		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
 		build(out, StringHelper.getLocationFromString(mat.getPlayerArmorFeet().getId().getPath()));
 
+	}
+	
+	private void addGrinderRecipes(Consumer<IFinishedRecipe> out) 
+	{
+		for (NComplexMaterial mat : NedaireMaterials.MATERIALS)
+		{
+			GrinderRecipeBuilder.builder(new ItemStack(mat.getDust().get(), 2)).
+			addInput(NedaireTags.Items.MATERIALS.get(mat.getName()).getOre()).
+			build(out, StringHelper.getLocationFromString(NedaireDatabase.Recipes.Types.GRINDER + "/" + mat.getOreBlock().getId().getPath() + "_to_" + mat.getDust().getId().getPath()));
+		}
 	}
 	
 	@Override

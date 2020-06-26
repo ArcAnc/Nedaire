@@ -32,29 +32,19 @@ public class NedaireTags
 		
 		public static final Map<String, NedaireTags.Blocks.MaterialTag> MATERIALS = Stream.of(SILVER, COBALT, IRIDIUM).collect(Collectors.toMap(NedaireTags.Blocks.MaterialTag :: getName, mat -> mat));
 		
-		private static Tag<Block> tag (String name)
-		{
-			return new BlockTags.Wrapper(StringHelper.getLocationFromString(name));
-		}
-		
-		private static Tag<Block> forgeTag(String name)
-		{
-			return new BlockTags.Wrapper(new ResourceLocation("forge", name));
-		}
-
 		protected static class MaterialTag
 		{
 			private final String name;
 			
 			private final Tag<Block> storageBlock;
-			//private final Tag<T> ore;
+			private final Tag<Block> ore;
 		
 			public MaterialTag(String name) 
 			{
 				this.name = name;
 				
 				this.storageBlock = forgeTag(StringHelper.plural(NedaireDatabase.Blocks.Names.STORAGE_BLOCK) + "/" + name);
-				//this.ore = forgeTag(name);
+				this.ore = forgeTag(StringHelper.plural(NedaireDatabase.Blocks.Names.ORE) + "/" + name);
 			}
 			
 			public String getName() 
@@ -66,7 +56,28 @@ public class NedaireTags
 			{
 				return storageBlock;
 			}
+			
+			public Tag<Block> getOre() 
+			{
+				return ore;
+			}
 		}
+		
+		private static Tag<Block> tag (String name)
+		{
+			return new BlockTags.Wrapper(StringHelper.getLocationFromString(name));
+		}
+		
+		private static Tag<Block> forgeTag(String name)
+		{
+			return new BlockTags.Wrapper(new ResourceLocation("forge", name));
+		}
+		
+		private static Tag<Block> minecraftTag(String name)
+		{
+			return new BlockTags.Wrapper(new ResourceLocation("minecraft", name));
+		}
+	
 	}
 	
 	public static class Items
@@ -87,7 +98,7 @@ public class NedaireTags
 			private final Tag<Item> dust;
 			
 			private final Tag<Item> storageBlock;
-			//private final Tag<Item> ore;
+			private final Tag<Item> ore;
 		
 			public MaterialTag(String name) 
 			{
@@ -98,7 +109,7 @@ public class NedaireTags
 				this.dust = forgeTag(StringHelper.plural(NedaireDatabase.Items.Names.DUST) + "/" + name);
 
 				this.storageBlock = forgeTag(StringHelper.plural(NedaireDatabase.Blocks.Names.STORAGE_BLOCK) + "/" + name);
-				//this.ore = forgeTag(name);
+				this.ore = forgeTag(StringHelper.plural(NedaireDatabase.Blocks.Names.ORE) + "/" + name);
 			}
 			
 			public String getName() 
@@ -125,17 +136,26 @@ public class NedaireTags
 			{
 				return storageBlock;
 			}
+			
+			public Tag<Item> getOre() 
+			{
+				return ore;
+			}
 		}
 
-		
-		public static Tag<Item> tag(String name)
+		private static Tag<Item> tag(String name)
 	    {
 	        return new ItemTags.Wrapper(StringHelper.getLocationFromString(name));
 	    }
 		
-		public static Tag<Item> forgeTag(String name)
+		private static Tag<Item> forgeTag(String name)
 		{
 			return new ItemTags.Wrapper(new ResourceLocation("forge", name));
+		}
+		
+		private static Tag<Item> minecraftTag(String name)
+		{
+			return new ItemTags.Wrapper(new ResourceLocation("minecraft", name));
 		}
 
 	}

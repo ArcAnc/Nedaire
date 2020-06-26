@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[30,)"
+loaderVersion="[31,)"
 issueTrackerURL="https://github.com/ArcAnc/Nedaire/issues/"
 [[mods]]
 modId="nedaire"
@@ -15,7 +15,7 @@ I'm just want to write description!
 [[dependencies.nedaire]]
     modId="forge"
     mandatory=true
-    versionRange="[30,)" 
+    versionRange="[31,)" 
     ordering="NONE"
     side="BOTH"
 [[dependencies.nedaire]]

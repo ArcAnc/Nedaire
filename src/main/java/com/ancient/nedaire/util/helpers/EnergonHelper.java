@@ -1,8 +1,19 @@
 package com.ancient.nedaire.util.helpers;
 
+import com.ancient.nedaire.api.capabilities.IEnergonEnergy;
+import com.ancient.nedaire.api.capabilities.NedaireCapabilities;
+
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.LazyOptional;
+
 public class EnergonHelper 
 {
-/*	public static Capability<IEnergonEnergy> energonHandler = NedaireCapablities.ENERGON_ENERGY_CAPABILITY;
+	public static Capability<IEnergonEnergy> energonHandler = NedaireCapabilities.ENERGON_ENERGY_CAPABILITY;
 	
 	public static boolean isEnergonHandler(TileEntity tile, Direction dir)
 	{
@@ -71,7 +82,7 @@ public class EnergonHelper
 		}).orElse(0);
 	}
 	
-	public static int transferEnergon (LazyOptional<IEnergonEnergy> from, LazyOptional<IEnergonEnergy> in, int count)
+/*	public static int transferEnergon (LazyOptional<IEnergonEnergy> from, LazyOptional<IEnergonEnergy> in, int count)
 	{
 		if (from.isPresent() && in.isPresent() && hasEmptySpace(in))
 		{
@@ -85,7 +96,7 @@ public class EnergonHelper
 		}
 		return 0; 
 	}
-
+*/
 	public static boolean isEmpty(TileEntity tile) 
 	{
 		if (tile != null)
@@ -112,4 +123,4 @@ public class EnergonHelper
 	}
 
 
-*/}
+}

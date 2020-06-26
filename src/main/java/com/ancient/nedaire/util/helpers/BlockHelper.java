@@ -1,9 +1,21 @@
 package com.ancient.nedaire.util.helpers;
 
+import java.util.Set;
+
+import com.ancient.nedaire.content.blocks.NBaseBlock;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Sets;
+
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+
 public class BlockHelper 
 {
 	
-/*	public static final TileEntity getTileEntity(World world, BlockPos pos)
+	public static final TileEntity getTileEntity(World world, BlockPos pos)
 	{
 		if (world != null && world.isAreaLoaded(pos, 1))
 		{
@@ -32,17 +44,7 @@ public class BlockHelper
 		return null;
 	}
 	
-	public static <T extends NBaseBlock> T setRenderLayer(T block, RenderType renderLayer) 
-	{
-		block.setRenderLayer(renderLayer);
-		return block;
-	}
-
-	public static final RenderType CUTOUT = RenderType.getCutout();
-	public static final RenderType CUTOUT_MIPPED = RenderType.getCutoutMipped();
-	public static final RenderType TRANSLUCENT = RenderType.getTranslucent();
-	
-	public static boolean isRotableBlock (BlockState state)
+/*	public static boolean isRotableBlock (BlockState state)
 	{
 		return state.has(NRotableBlock.FACING); 
 	}
@@ -50,6 +52,12 @@ public class BlockHelper
 	public static Direction getBlockDirection (BlockState state)
 	{
 		return isRotableBlock(state) ? state.get(NRotableBlock.FACING) : Direction.SOUTH;
+	}
+*/	
+	public static <T extends NBaseBlock> T setRenderLayer(T block, RenderType layer)
+	{
+		block.setRenderLayer(layer);
+		return block;
 	}
 	
 	public static Set<BlockPos> getBlockPosInAABB (AxisAlignedBB aabb)
@@ -71,4 +79,4 @@ public class BlockHelper
 		
 		return poses;
 	}
-*/}
+}

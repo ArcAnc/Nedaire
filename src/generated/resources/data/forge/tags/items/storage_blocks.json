@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:storage_blocks/cobalt",
+    "#forge:storage_blocks/iridium",
+    "#forge:storage_blocks/silver"
+  ]
+}

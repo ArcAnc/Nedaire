@@ -1,8 +1,20 @@
 package com.ancient.nedaire.util.helpers;
 
+import net.minecraft.item.ItemStack;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Direction;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemHandlerHelper;
+
 public class ItemHelper 
 {
-/*	public static Capability<IItemHandler> itemHandler = CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
+	public static Capability<IItemHandler> itemHandler = CapabilityItemHandler.ITEM_HANDLER_CAPABILITY;
 
 	public static boolean stacksIsFitForRecipe(ItemStack recipe, ItemStack ing)
 	{
@@ -65,7 +77,7 @@ public class ItemHelper
 		}
 		return false;
 	}
-
+*/
 	
 	public static boolean stackTagsEqual (ItemStack filter, ItemStack stack)
 	{
@@ -271,4 +283,4 @@ public class ItemHelper
 			}).orElse(ItemStack.EMPTY);
 		}).orElse(ItemStack.EMPTY);
 	}
-*/}
+}

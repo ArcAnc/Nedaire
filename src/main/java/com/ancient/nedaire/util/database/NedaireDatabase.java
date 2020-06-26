@@ -183,7 +183,8 @@ public class NedaireDatabase
 			public static final String ENCHANTED_STONE = StringHelper.underscorePlacer(ENCHANTED, "stone");
 			public static final String ENCHANTED_NETHERRACK = StringHelper.underscorePlacer(ENCHANTED, "netherrack");
 			public static final String ENCHANTED_END_STONE = StringHelper.underscorePlacer(ENCHANTED, "end", "stone");
-
+			public static final String MACHINE = "machine";
+			
 			public static class Machines 
 			{
 				public static final String SOLAR_PANEL = "panel_solar"; 
@@ -226,11 +227,144 @@ public class NedaireDatabase
 		}
 	}
 
+	public static class Capabilities
+	{
+		public static class Energon
+		{
+			public static final ResourceLocation ID = StringHelper.getLocationFromString("energon");
+			
+			public static final String NBT_LOCATION = StringHelper.getStrLocationFromString("energon");
+			
+			public static final String ADDRESS = StringHelper.getStrLocationFromString("energon_energy");
+			public static final String MAX_ADDRESS = StringHelper.getStrLocationFromString("energon_max_energy");
+			public static final String ENERGY_RECEIVING = StringHelper.getStrLocationFromString("energy_receiving");
+			public static final String ENERGY_EXTRACTION = StringHelper.getStrLocationFromString("energy_extraction"); 
+			
+//			public static final String TYPE = StringHelper.getStrLocationFromString("energon_type");
+		
+			public static class Descriptions
+			{
+				public static final String DESCRIPTION = StringHelper.getStrLocationFromString("energon.description").replace(':', '.');
+			}
+		
+		}
+		
+		public static class GemHandler
+		{
+			public static final ResourceLocation ID = StringHelper.getLocationFromString("gem_handler");
+			
+			public static final String NBT_LOCATION = StringHelper.getStrLocationFromString("gem_handler");
+		
+			public static final String META_COUNT = StringHelper.getStrLocationFromString("meta_count");
+			public static final String STANDART_COUNT = StringHelper.getStrLocationFromString("standart_count");
+			public static final String COLOR = StringHelper.getStrLocationFromString("color");
+			
+			public static final String SLOT = StringHelper.getStrLocationFromString("slot");
+			public static final String ITEMS = StringHelper.getStrLocationFromString("items");
+			
+			public static class Descriptions
+			{
+				public static final String ADDRESS = StringHelper.getStrLocationFromString("gem_handler.description").replace(':', '.');
+				public static final String STANDART_SLOT = StringHelper.getStrLocationFromString("gem_handler.standart_slot.description").replace(':', '.');
+				public static final String META_SLOT = StringHelper.getStrLocationFromString("gem_handler.meta_slot.description").replace(':', '.');
+				public static final String STANDART_SLOT_NAME = StringHelper.getStrLocationFromString("gem_handler.standart_slot.name").replace(':', '.');
+				public static final String META_SLOT_NAME = StringHelper.getStrLocationFromString("gem_handler.meta_slot.name").replace(':', '.');
+			}
+		}
+		
+		public static class ItemHandler
+		{
+			public static final String NBT_LOCATION = StringHelper.getStrLocationFromString("inventory");
+		}
+		
+		public static class FluidHandler
+		{
+			public static final String NBT_LOCATION = StringHelper.getStrLocationFromString("fluid");
+			
+			public static class Descriptions
+			{
+				public static final String DESCRIPTION = StringHelper.getStrLocationFromString("fluid.description").replace(':', '.');
+			}
+		}
+		
+	}
 
+	public static class TileEntity
+	{
+		public static class WorkSpeed
+		{
+		    public static final int HALF = 10;
+		    public static final int QUARTER = 5;
+		    public static final int FIFTH = 4;
+		}
+		
+		public static class NBTAddress
+		{
+			public static class Machines
+			{
+				public static class RedstoneSensitive
+				{
+					public static final String REDSTONE_MOD = StringHelper.getStrLocationFromString("redstone_mod");
+					
+					public static class Descriptions
+					{
+						public static final String REQUIRED_REDSTONE_ON = StringHelper.getStrLocationFromString("tab_redstone_control.redstone_on.description");
+						public static final String REQUIRED_REDSTONE_OFF = StringHelper.getStrLocationFromString("tab_redstone_control.redstone_off.description");
+						public static final String REQUIRED_REDSTONE_IGNORE = StringHelper.getStrLocationFromString("tab_redstone_control.redstone_ignore.description");
+					}
+				}
+				
+				public static class AbstractMachine
+				{
+					public static final String CONSUMED_ENERGY = StringHelper.getStrLocationFromString("consumed_energy");
+					public static final String INPUT_DIR = StringHelper.getStrLocationFromString("input_direction");
+					public static final String OUTPUT_DIR = StringHelper.getStrLocationFromString("output_direction");
+				}
+				
+				public static class Transmitters
+				{
+					public static final String FILTER_LIST = StringHelper.getStrLocationFromString("filter_list");
+					public static final String CONNECTED_TILES_ADDRESS = StringHelper.getStrLocationFromString("connected_tiles");
+					public static final String USE_WHITELIST = StringHelper.getStrLocationFromString("use_whitelist");
+					public static final String USE_NBT = StringHelper.getStrLocationFromString("use_nbt");
+					public static final String USE_TAGS = StringHelper.getStrLocationFromString("use_tags");
+					public static final String USE_MOD_OWNER = StringHelper.getStrLocationFromString("use_mod_owner");
+
+					public static final String MIX_SAME_FLUIDS = StringHelper.getStrLocationFromString("mix_same_fluids");
+
+					public static final String TYPE_NAME = StringHelper.getStrLocationFromString("type_name");
+
+					public static final String GET_INVENTORY_METHOD = StringHelper.getStrLocationFromString("get_inventory_method");
+					
+					public static final String CURRENT_USED_INVENTORY = StringHelper.getStrLocationFromString("current_used_inventory");
+					public static final String MODE = StringHelper.getStrLocationFromString("mode");
+					public static final String EXTRACT_COUNT = StringHelper.getStrLocationFromString("extract_count");
+				}
+				
+				public static class DimensionalTramsformer
+				{
+					public static final String TIME = StringHelper.getStrLocationFromString("time");
+				}
+			}
+		}
+		
+		public static class SpecialRenderer
+		{
+			public static class TexturesPath
+			{
+				private static final String PATH = "textures/block/tiles/machines/";
+				public static final ResourceLocation SAWMILL_SAW = StringHelper.getLocationFromString(PATH + Blocks.Names.Machines.SAWMILL + "/holder.png");
+				
+				public static final ResourceLocation TRANSMITTER_LIGHTNING = StringHelper.getLocationFromString(PATH + Blocks.Names.Machines.TRANSMITTER + "/lightning.png");
+			}
+		}
+	}
+	
 	public static class Recipes
 	{
 		public static class Types
 		{
+			public static final String GRINDER = Blocks.Names.Machines.GRINDER;
 			public static final String COOKER = StringHelper.getStrLocationFromString("cooker");
 			public static final String BLAST_FURNACE = StringHelper.getStrLocationFromString("blast_furnace");
 			public static final String SAWMILL = StringHelper.getStrLocationFromString("sawmill");
@@ -242,6 +376,40 @@ public class NedaireDatabase
 			public static final String BLASTING = "blasting";
 			public static final String CONVERSION = "conversion";
 			public static final String TOOL = "tool";
+		}
+		
+		public static class Serializers
+		{
+			public static final String ENERGY = "energy";
+			public static final String TIME = "time";
+			
+			public static final String INPUT = "input";
+			public static final String OUTPUT = "output";
+
+			public static final String AMOUNT = "amount";
+			public static final String NBT = "nbt"; 
+			
+			public static class FluidStack
+			{
+				public static final String FLUID = "fluid";
+			}
+			
+			public static class ItemStack
+			{
+				public static final String ITEM = "item";
+			}
+			
+			public static class IngredientWithSize
+			{
+				public static final String INGREDIENT = "ingredient";
+				public static final String AMOUNT = "amount";
+			}
+			
+			public static class Grinder
+			{
+				public static final String OUTPUT_SECONDARY = "output_secondary";
+				public static final String CHANCE_SECONDARY = "chance_secondary"; 
+			}
 		}
 	}
 }

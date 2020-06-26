@@ -1,0 +1,10 @@
+{
+  "type": "nedaire:grinder",
+  "output": {
+    "item": "nedaire:dust/silver",
+    "amount": 2
+  },
+  "input": {
+    "tag": "forge:ores/silver"
+  }
+}

@@ -28,20 +28,21 @@ public class NedaireItemTagsProvider extends ItemTagsProvider
 	{
 	
 		copy(Tags.Blocks.STORAGE_BLOCKS, Tags.Items.STORAGE_BLOCKS);
+		copy(Tags.Blocks.ORES, Tags.Items.ORES);
 
 		for (NComplexMaterial mat : NedaireMaterials.MATERIALS)
 		{
 			copy(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getStorageBlock(), NedaireTags.Items.MATERIALS.get(mat.getName()).getStorageBlock());
 			
-			//getBuilder(NedaireTags.Items.MATERIALS.get(mat.getName()).getStorageBlock()).add(mat.getStorageBlock().get().asItem());
+			copy(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getOre(), NedaireTags.Items.MATERIALS.get(mat.getName()).getOre());
 		
 			getBuilder(Tags.Items.INGOTS).add(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot());
 			getBuilder(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot()).add(mat.getIngot().get());
 			
-			getBuilder(Tags.Items.INGOTS).add(NedaireTags.Items.MATERIALS.get(mat.getName()).getNugget());
+			getBuilder(Tags.Items.NUGGETS).add(NedaireTags.Items.MATERIALS.get(mat.getName()).getNugget());
 			getBuilder(NedaireTags.Items.MATERIALS.get(mat.getName()).getNugget()).add(mat.getNugget().get());
 			
-			getBuilder(Tags.Items.INGOTS).add(NedaireTags.Items.MATERIALS.get(mat.getName()).getDust());
+			getBuilder(Tags.Items.DUSTS).add(NedaireTags.Items.MATERIALS.get(mat.getName()).getDust());
 			getBuilder(NedaireTags.Items.MATERIALS.get(mat.getName()).getDust()).add(mat.getDust().get());
 		}
 	}
