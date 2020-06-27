@@ -1,10 +1,12 @@
 {
   "type": "nedaire:grinder",
+  "output_secondary": [],
   "output": {
     "item": "nedaire:dust/silver",
     "amount": 2
   },
   "input": {
     "tag": "forge:ores/silver"
-  }
+  },
+  "energy": 500
 }

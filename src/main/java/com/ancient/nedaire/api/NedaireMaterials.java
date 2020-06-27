@@ -9,11 +9,14 @@
 package com.ancient.nedaire.api;
 
 import java.util.Set;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.ancient.nedaire.content.blocks.NTileProviderBlock;
+import com.ancient.nedaire.content.blocks.NBaseBlock;
+import com.ancient.nedaire.content.blocks.NBlockMachine;
 import com.ancient.nedaire.content.blocks.tileEntities.NTileGrinder;
+import com.ancient.nedaire.content.items.NBlockItem;
 import com.ancient.nedaire.content.materials.NComplexMaterial;
 import com.ancient.nedaire.content.materials.NComplexMaterial.NComplexMaterialProperties;
 import com.ancient.nedaire.util.database.NedaireDatabase;
@@ -77,8 +80,23 @@ public class NedaireMaterials
 
 	public static final Set<NComplexMaterial> MATERIALS = Stream.of(SILVER, COBALT, IRIDIUM).collect(Collectors.toSet());
 	
-	public static final RegistryObject<NTileProviderBlock<NTileGrinder>> GRINDER = BLOCKS.register(
-			StringHelper.slashPlacer(NedaireDatabase.Blocks.Names.Machines.GRINDER, NedaireDatabase.Blocks.Names.MACHINE), 
-			() -> BlockHelper.setRenderLayer(new NTileProviderBlock<NTileGrinder>(Block.Properties.create(Material.IRON), NTileGrinder :: new), 
-					RenderType.getCutout()));
+	public static final RegistryObject<NBlockMachine<NTileGrinder>> GRINDER = registerBlock(
+			StringHelper.slashPlacer(NedaireDatabase.Blocks.Names.Machines.GRINDER, NedaireDatabase.Blocks.Names.MACHINE),
+			() -> BlockHelper.setRenderLayer(
+					new NBlockMachine<NTileGrinder>(Block.Properties.create(Material.IRON), NTileGrinder :: new), 
+					RenderType.getCutout()),
+			true
+			);
+
+	private static <T extends NBaseBlock> RegistryObject<T> registerBlock(String name, Supplier<T> block, boolean isItemRequired)
+	{
+		RegistryObject<T> b = BLOCKS.register(name, block);
+		
+		if (isItemRequired)
+		{
+			ITEMS.register(b.getId().getPath(), ()-> new NBlockItem(b.get(), new Item.Properties()));
+		}
+		
+		return b;
+	}
 }

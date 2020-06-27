@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,lit=false": {
+      "model": "nedaire:block/machine/grinder/off",
+      "y": 180
+    },
+    "facing=south,lit=false": {
+      "model": "nedaire:block/machine/grinder/off"
+    },
+    "facing=west,lit=false": {
+      "model": "nedaire:block/machine/grinder/off",
+      "y": 90
+    },
+    "facing=east,lit=false": {
+      "model": "nedaire:block/machine/grinder/off",
+      "y": 270
+    },
+    "facing=north,lit=true": {
+      "model": "nedaire:block/machine/grinder/on",
+      "y": 180
+    },
+    "facing=south,lit=true": {
+      "model": "nedaire:block/machine/grinder/on"
+    },
+    "facing=west,lit=true": {
+      "model": "nedaire:block/machine/grinder/on",
+      "y": 90
+    },
+    "facing=east,lit=true": {
+      "model": "nedaire:block/machine/grinder/on",
+      "y": 270
+    }
+  }
+}

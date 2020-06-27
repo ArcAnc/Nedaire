@@ -18,16 +18,14 @@ import net.minecraft.tileentity.TileEntityType;
 public class NTileGrinder extends NTileAbstractMachine 
 {
 
-	/**
-	 * @param type
-	 */
 	public NTileGrinder() 
 	{
 		super(NedaireTileEntities.GRINDER.get());
 	}
 
 	@Override
-	public Container createMenu(int arg0, PlayerInventory arg1, PlayerEntity arg2) {
+	public Container createMenu(int arg0, PlayerInventory arg1, PlayerEntity arg2) 
+	{
 		// TODO Auto-generated method stub
 		return null;
 	}

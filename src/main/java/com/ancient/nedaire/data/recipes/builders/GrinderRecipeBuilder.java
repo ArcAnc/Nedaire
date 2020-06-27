@@ -29,6 +29,7 @@ public class GrinderRecipeBuilder extends NedaireFinishedRecipe<GrinderRecipeBui
 	private GrinderRecipeBuilder() 
 	{
 		super(NedaireRecipes.GRIDER_SERIALIZER.get());
+		addWriter(jsonObject -> jsonObject.add(NedaireDatabase.Recipes.Serializers.Grinder.OUTPUT_SECONDARY, secondaryArray));
 	}
 
 	@Override

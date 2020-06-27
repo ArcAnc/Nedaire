@@ -1,10 +1,12 @@
 {
   "type": "nedaire:grinder",
+  "output_secondary": [],
   "output": {
     "item": "nedaire:dust/iridium",
     "amount": 2
   },
   "input": {
     "tag": "forge:ores/iridium"
-  }
+  },
+  "energy": 500
 }

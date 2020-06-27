@@ -1,0 +1,11 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "nedaire:block/machine/grinder/down",
+    "up": "nedaire:block/machine/grinder/up",
+    "north": "nedaire:block/machine/grinder/front_on",
+    "south": "nedaire:block/machine/grinder/back",
+    "east": "nedaire:block/machine/grinder/right",
+    "west": "nedaire:block/machine/grinder/left"
+  }
+}

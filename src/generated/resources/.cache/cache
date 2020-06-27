@@ -1,9 +1,12 @@
+f7112a245a7ceec17e397e4b5e3fcd32d4b4f933 assets/nedaire/blockstates/machine/grinder.json
 39e293d57c3ffc26d83bed6a0f696718dd31c21a assets/nedaire/blockstates/ore/cobalt.json
 4257e37adbe40069bb62db90b209fdc40a8f8d56 assets/nedaire/blockstates/ore/iridium.json
 47b51855292dab2b668d45bcc2966947f1cc855d assets/nedaire/blockstates/ore/silver.json
 e7e13599087e065b70905b9502ee17e4e40130b0 assets/nedaire/blockstates/storage_block/cobalt.json
 2be1c1a30723a6b13f19f2148beabe514adc662c assets/nedaire/blockstates/storage_block/iridium.json
 2f1374ca162206552da7d2a9abb5ac5e43dd584f assets/nedaire/blockstates/storage_block/silver.json
+0e6ff1de16d8ab432a70598e91ebd020b4f169b8 assets/nedaire/models/block/machine/grinder/off.json
+c3f02f1d2642e28570fdebc4fde08ce030fb0944 assets/nedaire/models/block/machine/grinder/on.json
 b7f174a4f663bc4111cae4f9c1a2416b88014732 assets/nedaire/models/block/ore/cobalt.json
 b9daffcc27e584de7c532d8838cda3e547e4818d assets/nedaire/models/block/ore/iridium.json
 3503f242c59987ce14ab13e78d1beda2e0a6f7d4 assets/nedaire/models/block/ore/silver.json
@@ -31,6 +34,7 @@ d879d7691fd3ce060607d66827a435773a4551df assets/nedaire/models/item/armor/player
 f61fcfe8d6d9f939a17397b1ffe384cae924850f assets/nedaire/models/item/ingot/cobalt.json
 c5c4726c4eba98b22e439b33fa73ef97ed24decb assets/nedaire/models/item/ingot/iridium.json
 f3cfe63734a5234c253eecc43fc17f0c3e205405 assets/nedaire/models/item/ingot/silver.json
+d9c44f5f7ca79cb8508c4a80a38dc4e256edc73c assets/nedaire/models/item/machine/grinder.json
 32ae149dac428570f787db551b594aaf843dfd3f assets/nedaire/models/item/nugget/cobalt.json
 762eed12e8b533428c6355e16824de6822d606fb assets/nedaire/models/item/nugget/iridium.json
 1cfa5ba39e9b0a9a79bcb6f9818c398f0bb143b5 assets/nedaire/models/item/nugget/silver.json
@@ -236,9 +240,9 @@ c683216f3257e8d4e7824222c74ece7d50642213 data/nedaire/recipes/conversion/ingot/s
 015d2ab6a9925908a071a0f17766461a3a78b6e9 data/nedaire/recipes/conversion/storage_block/cobalt_to_ingot/cobalt.json
 e48b4a078ebad5ffb5341c4b8ba356e1d7aa8115 data/nedaire/recipes/conversion/storage_block/iridium_to_ingot/iridium.json
 4e11a1ef7f81ceacb8730ac580cd94be467911dd data/nedaire/recipes/conversion/storage_block/silver_to_ingot/silver.json
-ec9d4d082affd1b3ea73c85a851fe05d721b8139 data/nedaire/recipes/grinder/ore/cobalt_to_dust/cobalt.json
-fd441117016651ed85e425843c4f074fa79bfae2 data/nedaire/recipes/grinder/ore/iridium_to_dust/iridium.json
-91b5eab88a02050ac3df04da7e0931b4c7da7703 data/nedaire/recipes/grinder/ore/silver_to_dust/silver.json
+472bef30d051445badbf62fed4281ec93ffae3fa data/nedaire/recipes/grinder/ore/cobalt_to_dust/cobalt.json
+b11d0d32cf1e50a83576abdf9528b5b6575b93e6 data/nedaire/recipes/grinder/ore/iridium_to_dust/iridium.json
+130e4d525680421cb7fc2c91bca27d7a139e741d data/nedaire/recipes/grinder/ore/silver_to_dust/silver.json
 ac757e871848cba2ffd2d7703508fa4a23725be3 data/nedaire/recipes/smelting/dusts/cobalt_to_ingot/cobalt.json
 1499979070fb65dca7413c7f95023f22b23ec53d data/nedaire/recipes/smelting/dusts/iridium_to_ingot/iridium.json
 e063a3ced899c78a40b251dcbd213569e2a5887e data/nedaire/recipes/smelting/dusts/silver_to_ingot/silver.json

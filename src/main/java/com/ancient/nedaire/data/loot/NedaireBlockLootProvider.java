@@ -38,6 +38,8 @@ public class NedaireBlockLootProvider extends NedaireLootProvider
 			registerSelfDrop(mat.getStorageBlock().get());
 			registerSelfDrop(mat.getOreBlock().get());
 		}
+		
+		registerSelfDrop(NedaireMaterials.GRINDER.get());
 	}
 	
 	private void registerSelfDrop(Block block)
@@ -58,7 +60,7 @@ public class NedaireBlockLootProvider extends NedaireLootProvider
 	private void register(ResourceLocation name, LootTable.Builder table)
 	{
 		if(tables.put(toTableLoc(name), table.setParameterSet(LootParameterSets.BLOCK).build())!=null)
-			throw new IllegalStateException("Duplicate loot table "+name);
+			throw new IllegalStateException("Duplicate loot table " + name);
 	}	
 	
 	private LootPool.Builder singleItem(IItemProvider in)

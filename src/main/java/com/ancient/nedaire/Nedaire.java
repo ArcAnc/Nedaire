@@ -22,6 +22,7 @@ import com.ancient.nedaire.data.NedaireItemModelProvider;
 import com.ancient.nedaire.data.NedaireItemTagsProvider;
 import com.ancient.nedaire.data.NedaireRecipesProvider;
 import com.ancient.nedaire.data.loot.NedaireBlockLootProvider;
+import com.ancient.nedaire.data.recipes.RecipeReloadListener;
 import com.ancient.nedaire.init.CapabilitiesInit;
 import com.ancient.nedaire.util.database.NedaireDatabase;
 
@@ -35,6 +36,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.fml.event.server.FMLServerAboutToStartEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(NedaireDatabase.MOD_ID)
@@ -58,9 +60,12 @@ public class Nedaire
 	    
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		
-	    modEventBus.addListener(this::serverSetup);
-	    modEventBus.addListener(this::clientSetup);
-	    modEventBus.addListener(this::gatherData);
+	    modEventBus.addListener(this :: serverSetup);
+	    modEventBus.addListener(this :: clientSetup);
+	    
+	    modEventBus.addListener(this :: serverAboutToStart);
+	    
+	    modEventBus.addListener(this :: gatherData);
 	    
 	    NedaireMaterials.BLOCKS.register(modEventBus);
 	    NedaireMaterials.ITEMS.register(modEventBus);
@@ -103,6 +108,11 @@ public class Nedaire
 				RenderTypeLookup.setRenderLayer(b, b.getRenderLayer());
 			}
 		});
+	}
+	
+	private void serverAboutToStart(FMLServerAboutToStartEvent event)
+	{
+		event.getServer().getResourceManager().addReloadListener(new RecipeReloadListener());
 	}
 	
     public void gatherData(GatherDataEvent event)

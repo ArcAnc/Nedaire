@@ -283,6 +283,7 @@ public class NedaireRecipesProvider extends RecipeProvider
 		{
 			GrinderRecipeBuilder.builder(new ItemStack(mat.getDust().get(), 2)).
 			addInput(NedaireTags.Items.MATERIALS.get(mat.getName()).getOre()).
+			setEnergy(500).
 			build(out, StringHelper.getLocationFromString(NedaireDatabase.Recipes.Types.GRINDER + "/" + mat.getOreBlock().getId().getPath() + "_to_" + mat.getDust().getId().getPath()));
 		}
 	}

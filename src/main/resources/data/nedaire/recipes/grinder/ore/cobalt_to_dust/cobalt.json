@@ -1,10 +1,12 @@
 {
   "type": "nedaire:grinder",
+  "output_secondary": [],
   "output": {
     "item": "nedaire:dust/cobalt",
     "amount": 2
   },
   "input": {
     "tag": "forge:ores/cobalt"
-  }
+  },
+  "energy": 500
 }

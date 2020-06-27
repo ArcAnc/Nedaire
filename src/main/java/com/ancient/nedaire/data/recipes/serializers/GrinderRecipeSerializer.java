@@ -17,7 +17,6 @@ import com.google.gson.JsonObject;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipe;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
@@ -37,7 +36,7 @@ public class GrinderRecipeSerializer extends NedaireRecipeSerializer<GrinderReci
 	{
 		Ingredient input = Ingredient.deserialize(JSONUtils.getJsonObject(json, NedaireDatabase.Recipes.Serializers.INPUT));
 		
-		ItemStack outputMain = ShapedRecipe.deserializeItem(JSONUtils.getJsonObject(json, NedaireDatabase.Recipes.Serializers.OUTPUT));
+		ItemStack outputMain = CraftingHelper.getItemStack(JSONUtils.getJsonObject(json, NedaireDatabase.Recipes.Serializers.OUTPUT), true);
 		int energy = JSONUtils.getInt(json, NedaireDatabase.Recipes.Serializers.ENERGY);
 		
 		GrinderRecipe recipe = new GrinderRecipe(recipeId, input, outputMain, energy);
@@ -49,7 +48,7 @@ public class GrinderRecipeSerializer extends NedaireRecipeSerializer<GrinderReci
 			if(CraftingHelper.processConditions(element, "conditions"))
 			{
 				float chance = JSONUtils.getFloat(element, NedaireDatabase.Recipes.Serializers.Grinder.CHANCE_SECONDARY);
-				ItemStack stack = ShapedRecipe.deserializeItem(element.getAsJsonObject(NedaireDatabase.Recipes.Serializers.Grinder.OUTPUT_SECONDARY));
+				ItemStack stack = CraftingHelper.getItemStack(element.getAsJsonObject(NedaireDatabase.Recipes.Serializers.Grinder.OUTPUT_SECONDARY), true);
 				recipe.addSecondaryOutput(new StackWithChance(stack, chance));
 			}
 		}

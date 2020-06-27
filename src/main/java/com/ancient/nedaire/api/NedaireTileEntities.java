@@ -10,7 +10,6 @@ package com.ancient.nedaire.api;
 
 import com.ancient.nedaire.content.blocks.tileEntities.NTileGrinder;
 import com.ancient.nedaire.util.database.NedaireDatabase;
-import com.ancient.nedaire.util.helpers.StringHelper;
 
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.tileentity.TileEntityType;
@@ -24,6 +23,6 @@ public class NedaireTileEntities
 	public static final DeferredRegister<ContainerType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, NedaireDatabase.MOD_ID);
 
 	public static final RegistryObject<TileEntityType<NTileGrinder>> GRINDER = TILE_ENTITIES.register(
-			StringHelper.slashPlacer(NedaireDatabase.Blocks.Names.Machines.GRINDER, NedaireDatabase.Blocks.Names.MACHINE), 
+			NedaireMaterials.GRINDER.getId().getPath(), 
 			() -> TileEntityType.Builder.create(NedaireMaterials.GRINDER.get().getTile(), NedaireMaterials.GRINDER.get()).build(null));
 }
