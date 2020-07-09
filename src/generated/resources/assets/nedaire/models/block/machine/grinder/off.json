@@ -5,7 +5,8 @@
     "up": "nedaire:block/machine/grinder/up",
     "north": "nedaire:block/machine/grinder/front_off",
     "south": "nedaire:block/machine/grinder/back",
-    "east": "nedaire:block/machine/grinder/right",
-    "west": "nedaire:block/machine/grinder/left"
+    "east": "nedaire:block/machine/grinder/right_off",
+    "west": "nedaire:block/machine/grinder/left_off",
+    "particle": "nedaire:block/machine/grinder/front_off"
   }
 }

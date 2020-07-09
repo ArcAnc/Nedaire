@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "#forge:nuggets/silver",
     "#forge:nuggets/cobalt",
+    "#forge:nuggets/silver",
     "#forge:nuggets/iridium"
   ]
 }

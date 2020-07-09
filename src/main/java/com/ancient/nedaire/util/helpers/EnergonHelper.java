@@ -69,7 +69,7 @@ public class EnergonHelper
 	{
 		return energy.map(handler -> 
 		{
-			return handler.isAllowedReceiving(null);
+			return handler.isAllowedReceiving();
 		}).orElse(false);
 	}
 	
@@ -116,7 +116,7 @@ public class EnergonHelper
 		{
 			return energy.map(handler -> 
 			{
-				return !handler.isAllowedExtraction(null);
+				return !handler.isAllowedExtraction();
 			}).orElse(false);
 		}
 		return false;

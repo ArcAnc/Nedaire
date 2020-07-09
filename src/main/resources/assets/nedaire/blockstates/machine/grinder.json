@@ -1,34 +1,302 @@
 {
-  "variants": {
-    "facing=north,lit=false": {
-      "model": "nedaire:block/machine/grinder/off",
-      "y": 180
+  "multipart": [
+    {
+      "when": {
+        "active": "false",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/grinder/off",
+        "y": 180
+      }
     },
-    "facing=south,lit=false": {
-      "model": "nedaire:block/machine/grinder/off"
+    {
+      "when": {
+        "active": "true",
+        "facing": "south"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/grinder/on",
+        "y": 180
+      }
     },
-    "facing=west,lit=false": {
-      "model": "nedaire:block/machine/grinder/off",
-      "y": 90
+    {
+      "when": {
+        "active": "false",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/grinder/off"
+      }
     },
-    "facing=east,lit=false": {
-      "model": "nedaire:block/machine/grinder/off",
-      "y": 270
+    {
+      "when": {
+        "active": "true",
+        "facing": "north"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/grinder/on"
+      }
     },
-    "facing=north,lit=true": {
-      "model": "nedaire:block/machine/grinder/on",
-      "y": 180
+    {
+      "when": {
+        "active": "false",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/grinder/off",
+        "y": 270
+      }
     },
-    "facing=south,lit=true": {
-      "model": "nedaire:block/machine/grinder/on"
+    {
+      "when": {
+        "active": "true",
+        "facing": "west"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/grinder/on",
+        "y": 270
+      }
     },
-    "facing=west,lit=true": {
-      "model": "nedaire:block/machine/grinder/on",
-      "y": 90
+    {
+      "when": {
+        "active": "false",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/grinder/off",
+        "y": 90
+      }
     },
-    "facing=east,lit=true": {
-      "model": "nedaire:block/machine/grinder/on",
-      "y": 270
+    {
+      "when": {
+        "active": "true",
+        "facing": "east"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/grinder/on",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "access_down": "none"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/none"
+      }
+    },
+    {
+      "when": {
+        "access_up": "none"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/none",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "access_south": "none"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/none",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "access_north": "none"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/none",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "access_west": "none"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/none",
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "access_east": "none"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/none",
+        "x": 270,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "access_down": "input"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/input"
+      }
+    },
+    {
+      "when": {
+        "access_up": "input"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/input",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "access_south": "input"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/input",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "access_north": "input"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/input",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "access_west": "input"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/input",
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "access_east": "input"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/input",
+        "x": 270,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "access_down": "output"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/output"
+      }
+    },
+    {
+      "when": {
+        "access_up": "output"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/output",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "access_south": "output"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/output",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "access_north": "output"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/output",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "access_west": "output"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/output",
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "access_east": "output"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/output",
+        "x": 270,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "access_down": "full"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/both"
+      }
+    },
+    {
+      "when": {
+        "access_up": "full"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/both",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "access_south": "full"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/both",
+        "x": 90
+      }
+    },
+    {
+      "when": {
+        "access_north": "full"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/both",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "access_west": "full"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/both",
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "access_east": "full"
+      },
+      "apply": {
+        "model": "nedaire:block/machine/access/both",
+        "x": 270,
+        "y": 90
+      }
     }
-  }
+  ]
 }

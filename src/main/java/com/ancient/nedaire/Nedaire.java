@@ -14,7 +14,8 @@ import org.apache.logging.log4j.Logger;
 import com.ancient.nedaire.api.NedaireMaterials;
 import com.ancient.nedaire.api.NedaireRecipes;
 import com.ancient.nedaire.api.NedaireTileEntities;
-import com.ancient.nedaire.content.blocks.NBaseBlock;
+import com.ancient.nedaire.content.block.NBaseBlock;
+import com.ancient.nedaire.content.gui.screens.tiles.NGrinderScreen;
 import com.ancient.nedaire.content.itemGroup.NItemGroup;
 import com.ancient.nedaire.data.NedaireBlockStatesProvider;
 import com.ancient.nedaire.data.NedaireBlockTagsProvider;
@@ -26,9 +27,12 @@ import com.ancient.nedaire.data.recipes.RecipeReloadListener;
 import com.ancient.nedaire.init.CapabilitiesInit;
 import com.ancient.nedaire.util.database.NedaireDatabase;
 
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.inventory.container.PlayerContainer;
 import net.minecraft.item.ItemGroup;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -62,8 +66,7 @@ public class Nedaire
 		
 	    modEventBus.addListener(this :: serverSetup);
 	    modEventBus.addListener(this :: clientSetup);
-	    
-	    modEventBus.addListener(this :: serverAboutToStart);
+	    modEventBus.addListener(this :: clientTextureStitch);
 	    
 	    modEventBus.addListener(this :: gatherData);
 	    
@@ -75,6 +78,8 @@ public class Nedaire
 	    NedaireRecipes.RECIPE_SERIALIZERS.register(modEventBus);
 	    
 	    MinecraftForge.EVENT_BUS.register(this);
+
+	    MinecraftForge.EVENT_BUS.addListener(this :: serverAboutToStart);
 	}
 
 /*	@SubscribeEvent
@@ -92,7 +97,7 @@ public class Nedaire
 	    });
 	}
 */	
-    private void serverSetup(final FMLCommonSetupEvent event)
+	private void serverSetup(final FMLCommonSetupEvent event)
     {
     	CapabilitiesInit.initCapabilities();
     }
@@ -108,9 +113,36 @@ public class Nedaire
 				RenderTypeLookup.setRenderLayer(b, b.getRenderLayer());
 			}
 		});
+	
+		ScreenManager.registerFactory(NedaireTileEntities.GRINDER_CONTAINER.get(), NGrinderScreen :: new);
+		
+/*		NedaireTileEntities.TILE_INFO.values().stream().
+		forEach(value ->
+		{
+			if (value.hasSpecialRenderer())
+			{
+				TileEntityType<NTile> type = (TileEntityType<NTile>) value.getTileEntityType().get();
+				Function<? super TileEntityRendererDispatcher, ? extends TileEntityRenderer<? super NTile>> renderer = (Function<? super TileEntityRendererDispatcher, ? extends TileEntityRenderer<? super NTile>>) value.getTileRenderer();
+				ClientRegistry.bindTileEntityRenderer(type, renderer);
+			}
+			if (value.hasContainer())
+			{
+				ContainerType<Container> type = (ContainerType<Container>) value.getContainerType().get();
+				ScreenManager.IScreenFactory<Container, ?> screen = (IScreenFactory<Container, ?>) value.getGuiScreen();
+				ScreenManager.registerFactory(type, screen);
+			}
+		});
+*/	}
+	
+	private void clientTextureStitch (final TextureStitchEvent.Pre event)
+	{
+		if (event.getMap().getTextureLocation() == PlayerContainer.LOCATION_BLOCKS_TEXTURE)
+		{
+			event.addSprite(NedaireDatabase.GUI.Locations.SLOT);
+		}
 	}
 	
-	private void serverAboutToStart(FMLServerAboutToStartEvent event)
+	private void serverAboutToStart(final FMLServerAboutToStartEvent event)
 	{
 		event.getServer().getResourceManager().addReloadListener(new RecipeReloadListener());
 	}

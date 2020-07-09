@@ -8,15 +8,15 @@
  */
 package com.ancient.nedaire.data.recipes;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 
 import com.ancient.nedaire.api.NedaireRecipes;
 import com.ancient.nedaire.data.StackWithChance;
 import com.ancient.nedaire.data.recipes.serializers.GrinderRecipeSerializer;
 import com.google.common.base.Preconditions;
-import com.google.common.collect.Sets;
+import com.google.common.collect.Lists;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
@@ -29,7 +29,7 @@ public class GrinderRecipe extends NedaireSerializableRecipe
 	
 	private final Ingredient input;
 	private final ItemStack output;
-	private final Set<StackWithChance> outputSecondary = Sets.newHashSet();
+	private final List<StackWithChance> outputSecondary = Lists.newArrayList();
 	private final int energy;
 	
 	public GrinderRecipe(ResourceLocation id, Ingredient input, ItemStack outputMain, int energy) 
@@ -61,7 +61,7 @@ public class GrinderRecipe extends NedaireSerializableRecipe
 		return energy;
 	}
 	
-	public Set<StackWithChance> getOutputSecondary() 
+	public List<StackWithChance> getOutputSecondary() 
 	{
 		return outputSecondary;
 	}
@@ -81,10 +81,15 @@ public class GrinderRecipe extends NedaireSerializableRecipe
 	
 	public static Optional<GrinderRecipe> findRecipe(ItemStack input)
 	{
-		return recipes.entrySet().stream().
-				map( Map.Entry :: getValue).
+		return recipes.values().stream().
 				filter(recipe -> recipe.getInput().test(input)).
 				findFirst();
 	}
-
+	
+	public static boolean hasInput (ItemStack input)
+	{
+		return recipes.values().stream().
+				filter(recipe -> recipe.getInput().test(input)).
+				count() > 0;
+	}
 }

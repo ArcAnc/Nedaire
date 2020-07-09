@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "#forge:ingots/silver",
     "#forge:ingots/cobalt",
+    "#forge:ingots/silver",
     "#forge:ingots/iridium"
   ]
 }

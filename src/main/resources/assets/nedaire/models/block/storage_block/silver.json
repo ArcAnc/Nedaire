@@ -1,6 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "nedaire:block/storage_block/silver"
+    "all": "nedaire:block/storage_block/silver",
+    "particle": "nedaire:block/storage_block/silver"
   }
 }

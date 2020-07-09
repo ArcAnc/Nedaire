@@ -13,9 +13,10 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.ancient.nedaire.content.blocks.NBaseBlock;
-import com.ancient.nedaire.content.blocks.NBlockMachine;
-import com.ancient.nedaire.content.blocks.tileEntities.NTileGrinder;
+import com.ancient.nedaire.content.block.NBaseBlock;
+import com.ancient.nedaire.content.block.NBlockMachine;
+import com.ancient.nedaire.content.block.tileEntity.NTileGrinder;
+import com.ancient.nedaire.content.items.NBaseItem;
 import com.ancient.nedaire.content.items.NBlockItem;
 import com.ancient.nedaire.content.materials.NComplexMaterial;
 import com.ancient.nedaire.content.materials.NComplexMaterial.NComplexMaterialProperties;
@@ -80,6 +81,9 @@ public class NedaireMaterials
 
 	public static final Set<NComplexMaterial> MATERIALS = Stream.of(SILVER, COBALT, IRIDIUM).collect(Collectors.toSet());
 	
+	//============================
+	//	BLOCKS
+	//============================
 	public static final RegistryObject<NBlockMachine<NTileGrinder>> GRINDER = registerBlock(
 			StringHelper.slashPlacer(NedaireDatabase.Blocks.Names.Machines.GRINDER, NedaireDatabase.Blocks.Names.MACHINE),
 			() -> BlockHelper.setRenderLayer(
@@ -87,8 +91,18 @@ public class NedaireMaterials
 					RenderType.getCutout()),
 			true
 			);
+	
+	//=============================
+	// ITEMS
+	//=============================
+	
+	public static final RegistryObject<NBaseItem> CONTROL_ITEM = ITEMS.register("control_item", () -> new NBaseItem(new Item.Properties().maxDamage(0)));
+	
+	//=============================
+	// HELPERS
+	//=============================
 
-	private static <T extends NBaseBlock> RegistryObject<T> registerBlock(String name, Supplier<T> block, boolean isItemRequired)
+	public static <T extends NBaseBlock> RegistryObject<T> registerBlock(String name, Supplier<T> block, boolean isItemRequired)
 	{
 		RegistryObject<T> b = BLOCKS.register(name, block);
 		

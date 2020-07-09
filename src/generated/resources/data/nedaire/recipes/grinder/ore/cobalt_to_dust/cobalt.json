@@ -3,7 +3,7 @@
   "output_secondary": [],
   "output": {
     "item": "nedaire:dust/cobalt",
-    "amount": 2
+    "count": 2
   },
   "input": {
     "tag": "forge:ores/cobalt"

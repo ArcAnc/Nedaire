@@ -275,6 +275,13 @@ public class NedaireDatabase
 		public static class ItemHandler
 		{
 			public static final String NBT_LOCATION = StringHelper.getStrLocationFromString("inventory");
+			
+			public static final String SLOTS = "slots";
+			
+			public static class Storage
+			{
+				public static final String CAPACITY = "capacity";
+			}
 		}
 		
 		public static class FluidHandler
@@ -386,7 +393,7 @@ public class NedaireDatabase
 			public static final String INPUT = "input";
 			public static final String OUTPUT = "output";
 
-			public static final String AMOUNT = "amount";
+			public static final String AMOUNT = "count";
 			public static final String NBT = "nbt"; 
 			
 			public static class FluidStack
@@ -412,4 +419,103 @@ public class NedaireDatabase
 			}
 		}
 	}
+
+	public static class GUI
+	{
+		public static class ID
+		{
+//			public static final ResourceLocation SAWMILL = StringHelper.getLocationFromString(Blocks.Names.Machines.SAWMILL);
+//			public static final ResourceLocation COOKER = StringHelper.getLocationFromString(Blocks.Names.Machines.COOKER);
+//			public static final ResourceLocation BLAST_FURNACE = StringHelper.getLocationFromString(Blocks.Names.Machines.BLAST_FURNACE);
+			
+			public static final String GRINDER = Blocks.Names.Machines.GRINDER;
+			
+/*			public static final ResourceLocation GLASS_FACTORY = StringHelper.getLocationFromString(Blocks.Names.Machines.GLASS_FACTORY);
+			public static final ResourceLocation JEWELRY_TABLE = StringHelper.getLocationFromString(Blocks.Names.Machines.JEWELRY_TABLE);
+			public static final ResourceLocation SOLAR_PANEL = StringHelper.getLocationFromString(Blocks.Names.Machines.SOLAR_PANEL); 
+			public static final ResourceLocation LUNAR_PANEL = StringHelper.getLocationFromString(Blocks.Names.Machines.LUNAR_PANEL);
+			public static final ResourceLocation VOID_PANEL = StringHelper.getLocationFromString(Blocks.Names.Machines.VOID_PANEL);
+			public static final ResourceLocation HEAT_SINK = StringHelper.getLocationFromString(Blocks.Names.Machines.HEAT_SINK);
+
+			public static final ResourceLocation ENERGON_STORAGE = StringHelper.getLocationFromString(Blocks.Names.Storages.ENERGON_STORAGE);
+			public static final ResourceLocation FLUID_STORAGE = StringHelper.getLocationFromString(Blocks.Names.Storages.FLUID_STORAGE);
+			
+			public static final ResourceLocation ITEM_TRANSMITTER = StringHelper.getLocationFromString(Blocks.Names.Machines.ITEM_TRANSMITTER);
+			public static final ResourceLocation FLUID_TRANSMITTER = StringHelper.getLocationFromString(Blocks.Names.Machines.FLUID_TRANSMITTER);
+
+			public static final ResourceLocation RUNIC_ARMOR = StringHelper.getLocationFromString(StringHelper.underscorePlacer(NDatabase.Items.Names.TOOL, NDatabase.Items.Names.RUNIC, NDatabase.Items.Names.PLAYER_ARMOR));
+*/		}
+		
+		public static class Locations
+		{
+			private static final String PATH = "gui/";
+			
+			public static final ResourceLocation BACKGROUND = StringHelper.getLocationFromString("textures/" + PATH + "background" + ".png"); 
+			public static final ResourceLocation LIGHTNING = StringHelper.getLocationFromString("textures/" + PATH + "lightning" + ".png"); 
+			public static final ResourceLocation SLOT = StringHelper.getLocationFromString(PATH + "slot"); 
+
+			public static final ResourceLocation ELEMENTS = StringHelper.getLocationFromString("textures/" + PATH + "elements" + ".png"); 
+			
+			public static class Buttons
+			{
+				private static final String BUTTON_PATH = PATH + "button_icons/"; 
+				
+				public static final ResourceLocation BUTTON_BACKGROUND = StringHelper.getLocationFromString(BUTTON_PATH + "button_background" + ".png"); 
+			
+/*				public static final ResourceLocation ICON_RS_TORCH_ON = StringHelper.getLocationFromString(BUTTON_PATH + "icon_rs_torch_on" + ".png");
+				public static final ResourceLocation ICON_RS_TORCH_OFF = StringHelper.getLocationFromString(BUTTON_PATH + "icon_rs_torch_off" + ".png");
+
+				public static final ResourceLocation ICON_ENERGON_TYPE = StringHelper.getLocationFromString(BUTTON_PATH + "icon_energon_type" + ".png");
+				public static final ResourceLocation ICON_ENERGON_TYPE_OFF = StringHelper.getLocationFromString(BUTTON_PATH + "icon_energon_type_off" + ".png");
+
+				public static final ResourceLocation ICON_ENERGON_COLOR_ALLOWED_RANGE = StringHelper.getLocationFromString(BUTTON_PATH + "icon_energon_color_allowed_range" + ".png");
+				public static final ResourceLocation ICON_ENERGON_COLOR_ALLOWED_RANGE_OFF = StringHelper.getLocationFromString(BUTTON_PATH + "icon_energon_color_allowed_range_off" + ".png");
+				
+				public static final ResourceLocation ICON_WHITELIST = StringHelper.getLocationFromString(BUTTON_PATH + "icon_whitelist" +".png");
+				public static final ResourceLocation ICON_BLACKLIST = StringHelper.getLocationFromString(BUTTON_PATH + "icon_blacklist" + ".png");
+				public static final ResourceLocation ICON_TAG = StringHelper.getLocationFromString(BUTTON_PATH + "icon_tag" + ".png");
+				public static final ResourceLocation ICON_TAG_OFF = StringHelper.getLocationFromString(BUTTON_PATH + "icon_tag_off" + ".png");
+				public static final ResourceLocation ICON_MINUS = StringHelper.getLocationFromString(BUTTON_PATH + "icon_minus" + ".png");
+				public static final ResourceLocation ICON_MOD_OWNER = StringHelper.getLocationFromString(BUTTON_PATH + "icon_mod_owner" + ".png");
+				public static final ResourceLocation ICON_MOD_OWNER_OFF = StringHelper.getLocationFromString(BUTTON_PATH + "icon_mod_owner_off" + ".png");
+				public static final ResourceLocation ICON_NBT = StringHelper.getLocationFromString(BUTTON_PATH + "icon_nbt" + ".png");
+				public static final ResourceLocation ICON_NBT_OFF = StringHelper.getLocationFromString(BUTTON_PATH + "icon_nbt_off" + ".png");
+				public static final ResourceLocation ICON_ORE_DICTIONARY = StringHelper.getLocationFromString(BUTTON_PATH + "icon_ore_dictionary" + ".png");
+				public static final ResourceLocation ICON_ORE_DICTIONARY_OFF = StringHelper.getLocationFromString(BUTTON_PATH + "icon_ore_dictionary_off" + ".png");
+				public static final ResourceLocation ICON_PLUS = StringHelper.getLocationFromString(BUTTON_PATH + "icon_plus" + ".png");
+
+				public static final ResourceLocation ICON_NOPE = StringHelper.getLocationFromString(BUTTON_PATH + "icon_nope" + ".png");
+
+				public static class Descriptions
+				{
+					public static final String ICON_WHITELIST = StringHelper.getStrLocationFromString("icon_whitelist.description").replace(':', '.');
+					public static final String ICON_BLACKLIST = StringHelper.getStrLocationFromString("icon_blacklist.description").replace(':', '.');
+					public static final String ICON_TAG = StringHelper.getStrLocationFromString("icon_tag.description").replace(':', '.');
+					public static final String ICON_TAG_OFF = StringHelper.getStrLocationFromString("icon_tag_off.description").replace(':', '.');
+					public static final String ICON_MOD_OWNER = StringHelper.getStrLocationFromString("icon_mod_owner.description").replace(':', '.');
+					public static final String ICON_MOD_OWNER_OFF = StringHelper.getStrLocationFromString("icon_mod_owner_off.description").replace(':', '.');
+					public static final String ICON_NBT = StringHelper.getStrLocationFromString("icon_nbt.description").replace(':', '.');
+					public static final String ICON_NBT_OFF = StringHelper.getStrLocationFromString("icon_nbt_off.description").replace(':', '.');
+					public static final String ICON_ORE_DICTIONARY = StringHelper.getStrLocationFromString("icon_ore_dictionary.description").replace(':', '.');
+					public static final String ICON_ORE_DICTIONARY_OFF = StringHelper.getStrLocationFromString("icon_ore_dictionary_off.description").replace(':', '.');
+				}
+*/			}
+			
+			public static class Tiles
+			{
+/*				private static final String PATH = "textures/gui/tile_gui/";
+
+				public static final ResourceLocation SAWMILL = StringHelper.getLocationFromString(PATH + Blocks.Names.Machines.SAWMILL + ".png");
+				public static final ResourceLocation GLASS_FACTORY = StringHelper.getLocationFromString(PATH + Blocks.Names.Machines.GLASS_FACTORY + ".png");
+*/			}
+			
+			public static class Items
+			{
+//				private static final String PATH = "textures/gui/item_gui/";
+
+//				public static final ResourceLocation RUNIC_ARMOR = StringHelper.getLocationFromString(PATH + StringHelper.underscorePlacer(NDatabase.Items.Names.RUNIC, NDatabase.Items.Names.PLAYER_ARMOR)+ ".png");
+			}
+		}
+	}
+
 }

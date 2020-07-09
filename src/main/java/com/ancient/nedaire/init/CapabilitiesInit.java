@@ -10,7 +10,7 @@ package com.ancient.nedaire.init;
 
 import com.ancient.nedaire.Nedaire;
 import com.ancient.nedaire.api.capabilities.IEnergonEnergy;
-import com.ancient.nedaire.content.capabilities.energy.EnergonEnergy;
+import com.ancient.nedaire.content.capability.energy.EnergonEnergy;
 
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.INBT;

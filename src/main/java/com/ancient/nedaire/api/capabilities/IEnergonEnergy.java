@@ -8,17 +8,14 @@
  */
 package com.ancient.nedaire.api.capabilities;
 
-import java.util.Set;
-
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.Direction;
 import net.minecraftforge.common.util.INBTSerializable;
 
 public interface IEnergonEnergy extends INBTSerializable<CompoundNBT> 
 {
-	public int add(Direction dir, int count, boolean isSimulated);
+	public int add(int count, boolean isSimulated);
 	
-	public int extract(Direction dir, int count, boolean isSimulated);
+	public int extract(int count, boolean isSimulated);
 	
 	public IEnergonEnergy setEnergon(int count);
 	
@@ -28,15 +25,11 @@ public interface IEnergonEnergy extends INBTSerializable<CompoundNBT>
 	
 	public int getMaxEnergon();
 	
-	public IEnergonEnergy setReceive(Direction dir, int value);
+	public IEnergonEnergy setReceive(int value);
 	
-	public IEnergonEnergy setExtract(Direction dir, int value);
+	public IEnergonEnergy setExtract(int value);
 	
-	public boolean isAllowedExtraction (Direction dir);
+	public boolean isAllowedExtraction ();
 
-	public boolean isAllowedReceiving (Direction dir);
-
-	public Set<Direction> getAllowedExtractionSides();
-	
-	public Set<Direction> getAllowedReceivingSides();
+	public boolean isAllowedReceiving ();
 }

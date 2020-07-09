@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "#forge:dusts/cobalt",
-    "#forge:dusts/iridium",
-    "#forge:dusts/silver"
+    "#forge:dusts/silver",
+    "#forge:dusts/iridium"
   ]
 }

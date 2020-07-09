@@ -2,12 +2,17 @@ package com.ancient.nedaire.util.helpers;
 
 import java.util.Set;
 
-import com.ancient.nedaire.content.blocks.NBaseBlock;
+import com.ancient.nedaire.content.block.NBaseBlock;
+import com.ancient.nedaire.content.block.NedaireBlockStateProperties;
+import com.ancient.nedaire.content.capability.inventory.AccessType;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Sets;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.state.EnumProperty;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -44,6 +49,37 @@ public class BlockHelper
 		return null;
 	}
 	
+	public static boolean isMachineBlock (BlockState state)
+	{
+		return state.has(NedaireBlockStateProperties.ACCESS_TYPE.ACCESS_SOUTH);
+	}
+	
+	public static AccessType getAccess(BlockState state, Direction dir)
+	{
+		return isMachineBlock(state) ? state.get(getAccessProperty(state, dir)) : AccessType.NONE;
+	}
+	
+    public static EnumProperty<AccessType> getAccessProperty (BlockState state, Direction side)
+    {
+    	switch (side)
+    	{
+    		case SOUTH:
+    			return NedaireBlockStateProperties.ACCESS_TYPE.ACCESS_SOUTH;
+    		case NORTH:
+    			return NedaireBlockStateProperties.ACCESS_TYPE.ACCESS_NORTH;
+    		case WEST:
+    			return NedaireBlockStateProperties.ACCESS_TYPE.ACCESS_WEST;
+    		case EAST:
+    			return NedaireBlockStateProperties.ACCESS_TYPE.ACCESS_EAST;
+    		case UP:
+    			return NedaireBlockStateProperties.ACCESS_TYPE.ACCESS_UP;
+    		case DOWN:
+    			return NedaireBlockStateProperties.ACCESS_TYPE.ACCESS_DOWN;
+    		default:
+    			return null;
+    	}
+    }
+
 /*	public static boolean isRotableBlock (BlockState state)
 	{
 		return state.has(NRotableBlock.FACING); 

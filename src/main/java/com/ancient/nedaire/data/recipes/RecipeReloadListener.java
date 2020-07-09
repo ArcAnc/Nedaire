@@ -20,6 +20,8 @@ import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.RecipeManager;
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RecipesUpdatedEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.thread.EffectiveSide;
 import net.minecraftforge.fml.server.ServerLifecycleHooks;
 import net.minecraftforge.resource.IResourceType;
@@ -37,12 +39,17 @@ public class RecipeReloadListener implements ISelectiveResourceReloadListener
 		}
 	}
 	
+	@SubscribeEvent
+	public void onRecipesUpdated(RecipesUpdatedEvent event)
+	{
+		buildRecipeLists(event.getRecipeManager());
+	}
+	
 	public static void buildRecipeLists(RecipeManager recipeManager)
 	{
 		Collection<IRecipe<?>> recipes = recipeManager.getRecipes();
 
 		GrinderRecipe.recipes = filterRecipes(recipes, GrinderRecipe.class, NedaireRecipes.Types.GRINDER);
-	
 	}
 
 	private static <T extends IRecipe<?>> Map<ResourceLocation, T> filterRecipes(Collection<IRecipe<?>> recipes, Class<T> clazz, IRecipeType<T> recipeType) 

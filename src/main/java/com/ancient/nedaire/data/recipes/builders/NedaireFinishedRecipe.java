@@ -60,7 +60,7 @@ public abstract class NedaireFinishedRecipe <T extends NedaireFinishedRecipe<T>>
 	public NedaireFinishedRecipe(NedaireRecipeSerializer<?> serializer) 
 	{
 		this.serializer = serializer;
-		this.writerFunctions = Lists.newArrayList();;
+		this.writerFunctions = Lists.newArrayList();
 	}
 	
 	protected boolean isComplete()

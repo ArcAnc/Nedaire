@@ -11,8 +11,8 @@ package com.ancient.nedaire.content.materials;
 import java.util.function.Supplier;
 
 import com.ancient.nedaire.api.NedaireMaterials;
-import com.ancient.nedaire.content.blocks.NBaseBlock;
-import com.ancient.nedaire.content.blocks.NOreBlock;
+import com.ancient.nedaire.content.block.NBaseBlock;
+import com.ancient.nedaire.content.block.NOreBlock;
 import com.ancient.nedaire.content.items.NBaseItem;
 import com.ancient.nedaire.content.items.NBlockItem;
 import com.ancient.nedaire.content.items.armor.NArmorBase;
