@@ -8,24 +8,26 @@ import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextProperties;
+import net.minecraft.util.text.TranslationTextComponent;
 
 public class NGuiTumblerButton extends NGuiButton 
 {
 
 	protected ResourceLocation[] image = null;
-	protected String[] strings = null;
+	protected TranslationTextComponent[] strings = null;
 	protected boolean mode = false;
 	
-	public NGuiTumblerButton(int x, int y, int u, int v, int xSize, int ySize, boolean mode, ResourceLocation[] image, String[] descr ) 
+	public NGuiTumblerButton(int x, int y, int u, int v, int xSize, int ySize, boolean mode, ResourceLocation[] image, TranslationTextComponent[] descr ) 
 	{
-		super(x, y, u, v, xSize, ySize, null, "");
+		super(x, y, u, v, xSize, ySize, null, new TranslationTextComponent(""));
 	
 		this.image = image;
 		this.mode = mode;
 		this.strings = descr;
 	}
 	
-	public NGuiTumblerButton(int x, int y, int u, int v, int xSize, int ySize, ResourceLocation[] image, String[] descr ) 
+	public NGuiTumblerButton(int x, int y, int u, int v, int xSize, int ySize, ResourceLocation[] image, TranslationTextComponent[] descr ) 
 	{
 		this (x, y, u, v, xSize, ySize, false, image, descr);
 	}
@@ -79,13 +81,11 @@ public class NGuiTumblerButton extends NGuiButton
 	}
 	
 	@Override
-	public List<String> getTooltip() 
+	public List<ITextProperties> getTooltip() 
 	{
 		descr.clear();
 		
-		
-		
-		if (strings != null && strings[GlHelper.boolToInt(mode)] != null && !strings[GlHelper.boolToInt(mode)].isEmpty())
+		if (strings != null && strings[GlHelper.boolToInt(mode)] != null)// && !strings[GlHelper.boolToInt(mode)].isEmpty())
 		{
 			descr.add(strings[GlHelper.boolToInt(mode)]);
 		}

@@ -28,11 +28,11 @@ public class NedaireBlockTagsProvider extends BlockTagsProvider
 	{
 		for (NComplexMaterial mat : NedaireRegistration.MATERIALS)
 		{
-			getBuilder(Tags.Blocks.STORAGE_BLOCKS).add(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getStorageBlock());
-			getBuilder(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getStorageBlock()).add(mat.getStorageBlock().get());
+			func_240522_a_/*getBuilder*/(Tags.Blocks.STORAGE_BLOCKS).func_240531_a_/*add*/(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getStorageBlock());
+			func_240522_a_(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getStorageBlock()).func_240534_a_/*add*/(mat.getStorageBlock().get());
 
-			getBuilder(Tags.Blocks.ORES).add(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getOre());
-			getBuilder(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getOre()).add(mat.getOreBlock().get());
+			func_240522_a_(Tags.Blocks.ORES).func_240531_a_(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getOre());
+			func_240522_a_(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getOre()).func_240534_a_(mat.getOreBlock().get());
 		}
 	}
 	

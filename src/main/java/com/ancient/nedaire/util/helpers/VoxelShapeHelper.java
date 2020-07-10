@@ -3,10 +3,10 @@ package com.ancient.nedaire.util.helpers;
 import net.minecraft.block.Block;
 import net.minecraft.util.Direction.Axis;
 import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.vector.Vector3i;
 
 /**
  * @author Reispfannenfresser
@@ -26,7 +26,7 @@ public class VoxelShapeHelper {
 	 * @return the rotated VS
 	 */
 	public static VoxelShape rotate(VoxelShape shape, Axis axis) {
-		return rotate(shape, axis, 1, new Vec3i(8, 8, 8));
+		return rotate(shape, axis, 1, new Vector3i(8, 8, 8));
 	}
 	
 	/**
@@ -37,7 +37,7 @@ public class VoxelShapeHelper {
 	 * @param pos the center of rotation (e.g.: use "new Vec3i(8, 8, 8)" to rotate around the center of the block)
 	 * @return the rotated VS
 	 */
-	public static VoxelShape rotate(VoxelShape shape, Axis axis, Vec3i pos) {
+	public static VoxelShape rotate(VoxelShape shape, Axis axis, Vector3i pos) {
 		return rotate(shape, axis, 1, pos);
 	}
 	
@@ -50,7 +50,7 @@ public class VoxelShapeHelper {
 	 * @return the rotated VS
 	 */
 	public static VoxelShape rotate(VoxelShape shape, Axis axis, int times) {
-		return rotate(shape, axis, times, new Vec3i(8, 8, 8));
+		return rotate(shape, axis, times, new Vector3i(8, 8, 8));
 	}
 	
 	/**
@@ -62,10 +62,10 @@ public class VoxelShapeHelper {
 	 * @param pos the center of rotation (e.g.: use "new Vec3i(8, 8, 8)" to rotate around the center of the block)
 	 * @return the rotated VS
 	 */
-	public static VoxelShape rotate(VoxelShape shape, Axis axis, int times, Vec3i pos) {
+	public static VoxelShape rotate(VoxelShape shape, Axis axis, int times, Vector3i pos) {
 		VoxelShape rotatedShape = VoxelShapes.empty();
 		for (AxisAlignedBB box : shape.toBoundingBoxList()) {
-			AxisAlignedBB rotatedBox = rotateAABB(box, axis, times, new Vec3d(pos.getX() / 16d, pos.getY() / 16d, pos.getZ() / 16d));
+			AxisAlignedBB rotatedBox = rotateAABB(box, axis, times, new Vector3d(pos.getX() / 16d, pos.getY() / 16d, pos.getZ() / 16d));
 			rotatedShape = VoxelShapes.or(rotatedShape, voxelShapeFromAABB(rotatedBox));
 		}
 		return rotatedShape;
@@ -106,10 +106,10 @@ public class VoxelShapeHelper {
 	 * @param offset the offset
 	 * @return the moved VS
 	 */
-	public static VoxelShape move(VoxelShape shape, Vec3d offset) {
+	public static VoxelShape move(VoxelShape shape, Vector3d offset) {
 		VoxelShape movedShape = VoxelShapes.empty();
 		for (AxisAlignedBB box : shape.toBoundingBoxList()) {
-			AxisAlignedBB mirroredBox = moveAABB(box, new Vec3d(offset.x / 16, offset.y / 16, offset.z / 16));
+			AxisAlignedBB mirroredBox = moveAABB(box, new Vector3d(offset.x / 16, offset.y / 16, offset.z / 16));
 			movedShape = VoxelShapes.or(movedShape, voxelShapeFromAABB(mirroredBox));
 		}
 		return movedShape;
@@ -156,7 +156,7 @@ public class VoxelShapeHelper {
 	 * @param offset the offset
 	 * @return the moved AABB
 	 */
-	public static AxisAlignedBB moveAABB(AxisAlignedBB box, Vec3d offset) {
+	public static AxisAlignedBB moveAABB(AxisAlignedBB box, Vector3d offset) {
 		double minX = box.minX + offset.x;
 		double minY = box.minY + offset.y;
 		double minZ = box.minZ + offset.z;
@@ -222,7 +222,7 @@ public class VoxelShapeHelper {
 	 * @param pos the center of rotation (e.g.: use "new Vec3d(0.5, 0.5, 0.5)" to rotate around the center of the block)
 	 * @return the rotated AABB
 	 */
-	private static AxisAlignedBB rotateAABB(AxisAlignedBB box, Axis axis, int times, Vec3d pos) {
+	private static AxisAlignedBB rotateAABB(AxisAlignedBB box, Axis axis, int times, Vector3d pos) {
 		double tmp;
 		double minX = box.minX;
 		double minY = box.minY;

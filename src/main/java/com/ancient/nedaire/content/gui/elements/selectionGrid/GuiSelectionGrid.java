@@ -8,6 +8,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.TranslationTextComponent;
 
 public class GuiSelectionGrid extends ClickableBase 
 {
@@ -15,7 +16,7 @@ public class GuiSelectionGrid extends ClickableBase
 	public int buttonsCount;
 	public int buttonsCountInRow;
 	public ResourceLocation[] text;
-	public String[] str;
+	public TranslationTextComponent[] str;
 	private int currentButtonId;
 	
 	public boolean enabled;
@@ -29,7 +30,7 @@ public class GuiSelectionGrid extends ClickableBase
 	private int buttonWidth;	
 	private int buttonHeight;
 	
-	public GuiSelectionGrid(int x, int y, int width, int height, int buttonsCount, int buttonsCountInRow, ResourceLocation[] textures, String[] strings) 
+	public GuiSelectionGrid(int x, int y, int width, int height, int buttonsCount, int buttonsCountInRow, ResourceLocation[] textures, TranslationTextComponent[] strings) 
 	{
 		super(x,y, 0, 0, width, height);
 		this.currentButtonId = 0;
@@ -116,8 +117,8 @@ public class GuiSelectionGrid extends ClickableBase
     		descr.clear();
     		if (isMouseOver(mouseX, mouseY))
     		{
-    			String s = str[getClickedButton(mouseX, mouseY)];
-    			if (s != null && !s.isEmpty())
+    			TranslationTextComponent s = str[getClickedButton(mouseX, mouseY)];
+    			if (s != null)// && !s.isEmpty()
         			descr.add(s);
     		}
         	

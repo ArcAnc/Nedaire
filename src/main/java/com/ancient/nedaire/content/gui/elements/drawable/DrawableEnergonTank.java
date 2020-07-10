@@ -8,6 +8,7 @@ import com.ancient.nedaire.util.helpers.GlHelper;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.text.ITextProperties;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.util.LazyOptional;
 
@@ -61,14 +62,14 @@ public class DrawableEnergonTank extends DrawableBase
 	}
 	
 	@Override
-	public List<String> getTooltip() 
+	public List<ITextProperties> getTooltip() 
 	{
 		energon.ifPresent(handler -> 
 		{
 			if (descr.isEmpty())
-				descr.add(new TranslationTextComponent(NedaireDatabase.Capabilities.Energon.Descriptions.DESCRIPTION, handler.getEnergon(), handler.getMaxEnergon()).getFormattedText());
+				descr.add(new TranslationTextComponent(NedaireDatabase.Capabilities.Energon.Descriptions.DESCRIPTION, handler.getEnergon(), handler.getMaxEnergon()));
 			else
-				descr.set(0, new TranslationTextComponent(NedaireDatabase.Capabilities.Energon.Descriptions.DESCRIPTION, handler.getEnergon(), handler.getMaxEnergon()).getFormattedText());
+				descr.set(0, new TranslationTextComponent(NedaireDatabase.Capabilities.Energon.Descriptions.DESCRIPTION, handler.getEnergon(), handler.getMaxEnergon()));
 		});
 		return descr;
 	}

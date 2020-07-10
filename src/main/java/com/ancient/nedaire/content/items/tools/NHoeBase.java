@@ -19,7 +19,7 @@ public class NHoeBase extends HoeItem
 
 	public NHoeBase(NAbstractToolMaterial toolMat) 
 	{
-		super(toolMat, toolMat.getAttackSpeed(), new Item.Properties().group(Nedaire.instance.TAB));
+		super(toolMat, (int) toolMat.getAttackDamage(), toolMat.getAttackSpeed(), new Item.Properties().group(Nedaire.instance.TAB));
 	
 	}
 

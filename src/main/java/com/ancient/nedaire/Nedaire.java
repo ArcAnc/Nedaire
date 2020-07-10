@@ -35,13 +35,13 @@ import net.minecraft.inventory.container.PlayerContainer;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
-import net.minecraftforge.fml.event.server.FMLServerAboutToStartEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(NedaireDatabase.MOD_ID)
@@ -80,7 +80,7 @@ public class Nedaire
 	    
 	    MinecraftForge.EVENT_BUS.register(this);
 
-	    MinecraftForge.EVENT_BUS.addListener(this :: serverAboutToStart);
+	    MinecraftForge.EVENT_BUS.addListener(this :: addReloadListenerEvent);
 	}
 
 	private void serverSetup(final FMLCommonSetupEvent event)
@@ -129,9 +129,9 @@ public class Nedaire
 		}
 	}
 	
-	private void serverAboutToStart(final FMLServerAboutToStartEvent event)
+	private void addReloadListenerEvent(final AddReloadListenerEvent event)
 	{
-		event.getServer().getResourceManager().addReloadListener(new RecipeReloadListener());
+		event.addListener(new RecipeReloadListener());
 	}
 	
     public void gatherData(GatherDataEvent event)
@@ -140,8 +140,10 @@ public class Nedaire
         
     	if (event.includeServer())
     	{
-        	gen.addProvider(new NedaireBlockTagsProvider(gen));
-            gen.addProvider(new NedaireItemTagsProvider(gen));    	
+        	NedaireBlockTagsProvider btp = new NedaireBlockTagsProvider(gen);
+    		
+    		gen.addProvider(btp);
+            gen.addProvider(new NedaireItemTagsProvider(gen, btp));    	
             gen.addProvider(new NedaireRecipesProvider(gen));
             gen.addProvider(new NedaireBlockLootProvider(gen));
     	}

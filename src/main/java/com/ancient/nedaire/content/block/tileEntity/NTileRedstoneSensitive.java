@@ -2,6 +2,7 @@ package com.ancient.nedaire.content.block.tileEntity;
 
 import com.ancient.nedaire.util.database.NedaireDatabase;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.TileEntityType;
 
@@ -70,9 +71,9 @@ public class NTileRedstoneSensitive extends NTileSyncable
 	}
 	
 	@Override
-	public void read(CompoundNBT compound) 
+	public void read(BlockState state, CompoundNBT compound) 
 	{
-		super.read(compound);
+		super.read(state, compound);
 	
 		this.currentRedstoneMod = compound.getInt(NedaireDatabase.TileEntity.NBTAddress.Machines.RedstoneSensitive.REDSTONE_MOD);
 	}

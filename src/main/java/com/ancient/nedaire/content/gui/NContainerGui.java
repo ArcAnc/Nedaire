@@ -5,6 +5,7 @@ import java.util.Set;
 import com.ancient.nedaire.content.gui.elements.clickable.IClickable;
 import com.ancient.nedaire.content.gui.elements.drawable.IDrawable;
 import com.google.common.collect.Sets;
+import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
@@ -27,23 +28,23 @@ public abstract class NContainerGui<C extends Container> extends ContainerScreen
 	}
 
 	@Override
-	public void render(int mouseX, int mouseY, float partialTicks)
+	public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks)
 	{
-		renderBackground();
+		renderBackground(matrixStack);
 
 		RenderSystem.disableLighting();
-		super.render(mouseX, mouseY, partialTicks);
+		super.render(matrixStack, mouseX, mouseY, partialTicks);
 		RenderSystem.enableLighting();
 		
 		drawables.stream().forEach( draw -> draw.draw(getMinecraft(), mouseX, mouseY, partialTicks));
 
 		RenderSystem.disableLighting();
 		
-		renderHoveredToolTip(mouseX, mouseY);
+		func_230459_a_(matrixStack, mouseX, mouseY); //renderHoveredTooltip
 	
 		drawables.stream().
 		filter(draw -> draw.isMouseOver(mouseX, mouseY) && !draw.getTooltip().isEmpty()).
-		forEach(draw -> renderTooltip(draw.getTooltip(), mouseX, mouseY));
+		forEach(draw -> renderTooltip(matrixStack, draw.getTooltip(), mouseX, mouseY));
 	}
 
 	@Override

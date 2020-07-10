@@ -18,8 +18,8 @@ import com.ancient.nedaire.util.helpers.StringHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
 import net.minecraft.util.ResourceLocation;
 
 public class NedaireTags 
@@ -36,8 +36,8 @@ public class NedaireTags
 		{
 			private final String name;
 			
-			private final Tag<Block> storageBlock;
-			private final Tag<Block> ore;
+			private final ITag.INamedTag<Block> storageBlock;
+			private final ITag.INamedTag<Block> ore;
 		
 			public MaterialTag(String name) 
 			{
@@ -52,30 +52,30 @@ public class NedaireTags
 				return name;
 			}
 			
-			public Tag<Block> getStorageBlock() 
+			public ITag.INamedTag<Block> getStorageBlock() 
 			{
 				return storageBlock;
 			}
 			
-			public Tag<Block> getOre() 
+			public ITag.INamedTag<Block> getOre() 
 			{
 				return ore;
 			}
 		}
 		
-		private static Tag<Block> tag (String name)
+		private static ITag.INamedTag<Block> tag (String name)
 		{
-			return new BlockTags.Wrapper(StringHelper.getLocationFromString(name));
+			return BlockTags.makeWrapperTag(StringHelper.getStrLocationFromString(name));
 		}
 		
-		private static Tag<Block> forgeTag(String name)
+		private static ITag.INamedTag<Block> forgeTag(String name)
 		{
-			return new BlockTags.Wrapper(new ResourceLocation("forge", name));
+			return BlockTags.makeWrapperTag(new ResourceLocation("forge", name).toString());
 		}
 		
-		private static Tag<Block> minecraftTag(String name)
+		private static ITag.INamedTag<Block> minecraftTag(String name)
 		{
-			return new BlockTags.Wrapper(new ResourceLocation("minecraft", name));
+			return BlockTags.makeWrapperTag(new ResourceLocation("minecraft", name).toString());
 		}
 	
 	}
@@ -93,12 +93,12 @@ public class NedaireTags
 		{
 			private final String name;
 			
-			private final Tag<Item> ingot;
-			private final Tag<Item> nugget;
-			private final Tag<Item> dust;
+			private final ITag.INamedTag<Item> ingot;
+			private final ITag.INamedTag<Item> nugget;
+			private final ITag.INamedTag<Item> dust;
 			
-			private final Tag<Item> storageBlock;
-			private final Tag<Item> ore;
+			private final ITag.INamedTag<Item> storageBlock;
+			private final ITag.INamedTag<Item> ore;
 		
 			public MaterialTag(String name) 
 			{
@@ -117,45 +117,45 @@ public class NedaireTags
 				return name;
 			}
 			
-			public Tag<Item> getIngot() 
+			public ITag.INamedTag<Item> getIngot() 
 			{
 				return ingot;
 			}
 			
-			public Tag<Item> getDust() 
+			public ITag.INamedTag<Item> getDust() 
 			{
 				return dust;
 			}
 			
-			public Tag<Item> getNugget() 
+			public ITag.INamedTag<Item> getNugget() 
 			{
 				return nugget;
 			}
 			
-			public Tag<Item> getStorageBlock() 
+			public ITag.INamedTag<Item> getStorageBlock() 
 			{
 				return storageBlock;
 			}
 			
-			public Tag<Item> getOre() 
+			public ITag.INamedTag<Item> getOre() 
 			{
 				return ore;
 			}
 		}
 
-		private static Tag<Item> tag(String name)
+		private static ITag.INamedTag<Item> tag(String name)
 	    {
-	        return new ItemTags.Wrapper(StringHelper.getLocationFromString(name));
+	        return ItemTags.makeWrapperTag(StringHelper.getStrLocationFromString(name));
 	    }
 		
-		private static Tag<Item> forgeTag(String name)
+		private static ITag.INamedTag<Item> forgeTag(String name)
 		{
-			return new ItemTags.Wrapper(new ResourceLocation("forge", name));
+			return ItemTags.makeWrapperTag(new ResourceLocation("forge", name).toString());
 		}
 		
-		private static Tag<Item> minecraftTag(String name)
+		private static ITag.INamedTag<Item> minecraftTag(String name)
 		{
-			return new ItemTags.Wrapper(new ResourceLocation("minecraft", name));
+			return ItemTags.makeWrapperTag(new ResourceLocation("minecraft", name).toString());
 		}
 
 	}

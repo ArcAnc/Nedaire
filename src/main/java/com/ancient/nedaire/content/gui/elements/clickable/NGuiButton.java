@@ -8,14 +8,16 @@ import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextProperties;
+import net.minecraft.util.text.TranslationTextComponent;
 
 public class NGuiButton extends ClickableBase
 {
 
 	protected ResourceLocation background = null;
-	protected String str;
+	protected TranslationTextComponent str;
 	
-	public NGuiButton(int x, int y, int u, int v, int xSize, int ySize, ResourceLocation background, String descr) 
+	public NGuiButton(int x, int y, int u, int v, int xSize, int ySize, ResourceLocation background, TranslationTextComponent descr) 
 	{
 		super(x, y, u, v, xSize, ySize);
 	
@@ -90,11 +92,11 @@ public class NGuiButton extends ClickableBase
 	}
 	
 	@Override
-	public List<String> getTooltip() 
+	public List<ITextProperties> getTooltip() 
 	{
 		descr.clear();
 
-		if (str != null && !str.isEmpty())
+		if (str != null) //&& !str.isEmpy()
 		{
 			descr.add(str);
 		}

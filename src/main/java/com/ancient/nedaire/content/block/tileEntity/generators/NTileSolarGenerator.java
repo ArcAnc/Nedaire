@@ -15,7 +15,7 @@ import com.ancient.nedaire.util.helpers.WorldHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.world.dimension.DimensionType;
+import net.minecraft.world.DimensionType;
 
 public class NTileSolarGenerator extends NTileGenerator 
 {
@@ -31,7 +31,7 @@ public class NTileSolarGenerator extends NTileGenerator
 		if (WorldHelper.isDayTime(getWorld()) && 
 				!getWorld().isRaining() && 
 				!getWorld().isThundering() && 
-				getWorld().getDimension().getType() == DimensionType.OVERWORLD &&
+				getWorld().func_230315_m_()/*getDimensionType()*/ == DimensionType.func_236019_a_()/*OVERWORLD*/ &&
 				getWorld().canBlockSeeSky(getPos()))
 		{
 			energy.add(perTick, false);

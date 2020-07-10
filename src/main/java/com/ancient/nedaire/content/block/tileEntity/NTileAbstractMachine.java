@@ -9,6 +9,7 @@ import com.ancient.nedaire.util.helpers.BlockHelper;
 import com.ancient.nedaire.util.helpers.EnergonHelper;
 import com.ancient.nedaire.util.helpers.ItemHelper;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
@@ -71,9 +72,9 @@ public abstract class NTileAbstractMachine extends NTileRedstoneSensitive implem
 	}
 	
 	@Override
-	public void read(CompoundNBT compound) 
+	public void read(BlockState state, CompoundNBT compound) 
 	{
-		super.read(compound);
+		super.read(state, compound);
 		
 		energy.deserializeNBT(compound.getCompound(NedaireDatabase.Capabilities.Energon.NBT_LOCATION));
 

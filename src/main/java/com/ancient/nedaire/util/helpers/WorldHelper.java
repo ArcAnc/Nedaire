@@ -2,7 +2,7 @@ package com.ancient.nedaire.util.helpers;
 
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 
 public class WorldHelper 
@@ -49,12 +49,12 @@ public class WorldHelper
 		return false;
 	}
 	
-	public static ItemEntity spawnItemInWorld(World world, Vec3d pos, ItemStack stack)
+	public static ItemEntity spawnItemInWorld(World world, Vector3d pos, ItemStack stack)
 	{
 		if (world != null && !world.isRemote() && !stack.isEmpty())
 		{
 			ItemEntity item = new ItemEntity(world, pos.x, pos.y, pos.z, stack);
-			item.setMotion(Vec3d.ZERO);
+			item.setMotion(Vector3d.ZERO);
 			world.addEntity(item);
 			return item;
 		}

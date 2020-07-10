@@ -2,6 +2,8 @@ package com.ancient.nedaire.util.helpers;
 
 import javax.annotation.Nullable;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.screen.Screen;
@@ -61,9 +63,9 @@ public class GlHelper
 		return false;
 	}
 	
-    public static void drawString(FontRenderer fr, String text, int x, int y, int color)
+    public static void drawString(MatrixStack matrixStack, FontRenderer fr, String text, int x, int y, int color)
     {
-        fr.drawStringWithShadow(text, (float)x, (float)y, color);
+        fr.drawStringWithShadow(matrixStack, text, (float)x, (float)y, color);
     }
 	
 	public static void drawTexturedModalRectWithMaxUV(int xCoord, int yCoord, int widthIn, int heightIn)

@@ -30,7 +30,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
@@ -211,7 +211,7 @@ public abstract class NedaireFinishedRecipe <T extends NedaireFinishedRecipe<T>>
 			return addIngredient(generateSafeInputKey(), itemStacks);
 	}
 
-	public T addInput(Tag<Item> tag)
+	public T addInput(INamedTag<Item> tag)
 	{
 		if(inputArray!=null)
 			return addMultiInput(Ingredient.fromTag(tag));
@@ -272,7 +272,7 @@ public abstract class NedaireFinishedRecipe <T extends NedaireFinishedRecipe<T>>
 		return addIngredient(key, Ingredient.fromStacks(itemStacks));
 	}
 
-	public T addIngredient(String key, Tag<Item> tag)
+	public T addIngredient(String key, INamedTag <Item> tag)
 	{
 		return addIngredient(key, Ingredient.fromTag(tag));
 	}

@@ -17,6 +17,7 @@ import com.ancient.nedaire.api.NedaireRecipes;
 import com.ancient.nedaire.data.StackWithChance;
 import com.ancient.nedaire.data.recipes.GrinderRecipe;
 import com.ancient.nedaire.util.database.NedaireDatabase;
+import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import mezz.jei.api.constants.VanillaTypes;
@@ -27,6 +28,7 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextProperties;
 import net.minecraft.util.text.TranslationTextComponent;
 
 public class RecipeGrinderJeiCategory implements IRecipeCategory<GrinderRecipe> 
@@ -35,7 +37,7 @@ public class RecipeGrinderJeiCategory implements IRecipeCategory<GrinderRecipe>
 	private final IDrawable background;
 	private final IDrawable overlay;
 	private final IDrawable icon;
-	private final String name;
+	private final ITextProperties name;
 	
 	public RecipeGrinderJeiCategory(IGuiHelper helper) 
 	{
@@ -45,7 +47,7 @@ public class RecipeGrinderJeiCategory implements IRecipeCategory<GrinderRecipe>
 		
 		icon = helper.createDrawableIngredient(new ItemStack(NedaireRegistration.GRINDER.get().asItem()));
 		
-		name = new TranslationTextComponent(NedaireRegistration.GRINDER.get().getTranslationKey()).getFormattedText();
+		name = new TranslationTextComponent(NedaireRegistration.GRINDER.get().getTranslationKey());
 	}
 	
 	@Override
@@ -63,7 +65,7 @@ public class RecipeGrinderJeiCategory implements IRecipeCategory<GrinderRecipe>
 	@Override
 	public String getTitle() 
 	{
-		return name;
+		return name.getString();
 	}
 
 	@Override
@@ -98,11 +100,11 @@ public class RecipeGrinderJeiCategory implements IRecipeCategory<GrinderRecipe>
 	}
 
 	@Override
-	public void draw(GrinderRecipe recipe, double mouseX, double mouseY) 
+	public void draw(GrinderRecipe recipe, MatrixStack matrixStack, double mouseX, double mouseY) 
 	{
 		RenderSystem.enableAlphaTest();
 		RenderSystem.enableBlend();
-		overlay.draw(48, 0);
+		overlay.draw(matrixStack, 48, 0);
 		RenderSystem.disableBlend();
 		RenderSystem.disableAlphaTest();
 	}

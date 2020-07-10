@@ -24,8 +24,13 @@ public enum AccessType implements IStringSerializable
 		this.name = name;
 	}
 	
-	@Override
 	public String getName() 
+	{
+		return name;
+	}
+	
+	@Override
+	public String getString() 
 	{
 		return name;
 	}

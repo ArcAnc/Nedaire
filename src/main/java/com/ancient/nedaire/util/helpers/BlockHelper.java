@@ -51,7 +51,7 @@ public class BlockHelper
 	
 	public static boolean isMachineBlock (BlockState state)
 	{
-		return state.has(NedaireBlockStateProperties.ACCESS_TYPE.ACCESS_SOUTH);
+		return state.func_235901_b_(NedaireBlockStateProperties.ACCESS_TYPE.ACCESS_SOUTH); //has
 	}
 	
 	public static AccessType getAccess(BlockState state, Direction dir)

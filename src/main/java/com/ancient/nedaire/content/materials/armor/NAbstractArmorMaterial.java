@@ -25,7 +25,8 @@ public abstract class NAbstractArmorMaterial implements IArmorMaterial
 	private final int enchantability;
 	private final SoundEvent equipSound;
 	private final LazyValue<Ingredient> repairMaterial;
-
+	private final float unknownValue; // FIXME: добавить человеческое название этому полю, хз что оно такое.
+	
 	protected NAbstractArmorMaterial(AbstractBuilder<?> builder) 
 	{
 		this.name = builder.name;
@@ -35,6 +36,7 @@ public abstract class NAbstractArmorMaterial implements IArmorMaterial
 		this.enchantability = builder.enchantability;
 		this.equipSound = builder.equipSound;
 		this.repairMaterial = builder.repairMaterial;
+		this.unknownValue = builder.unknownValue;
 	}
 	
 	@Override
@@ -78,6 +80,12 @@ public abstract class NAbstractArmorMaterial implements IArmorMaterial
 	{
 		return toughness;
 	}
+	
+	@Override
+	public float func_230304_f_() 
+	{
+		return unknownValue;
+	}
 
 	public abstract static class AbstractBuilder<T extends AbstractBuilder<T>>
 	{
@@ -88,6 +96,7 @@ public abstract class NAbstractArmorMaterial implements IArmorMaterial
 		private int enchantability;
 		private SoundEvent equipSound;
 		private LazyValue<Ingredient> repairMaterial;
+		private float unknownValue;
 	
 		public AbstractBuilder() {}
 		
@@ -136,6 +145,12 @@ public abstract class NAbstractArmorMaterial implements IArmorMaterial
 		public T setRepairMaterial(Supplier<Ingredient> repairMaterial) 
 		{
 			this.repairMaterial = new LazyValue<> (repairMaterial);
+			return getSelf();
+		}
+		
+		public T setUnknownValue(float unknownValue) 
+		{
+			this.unknownValue = unknownValue;
 			return getSelf();
 		}
 		

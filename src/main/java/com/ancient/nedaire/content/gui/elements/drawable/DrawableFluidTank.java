@@ -11,6 +11,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.inventory.container.PlayerContainer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextProperties;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.capability.IFluidHandler;
@@ -81,13 +82,13 @@ public class DrawableFluidTank extends DrawableBase
 	}
 	
 	@Override
-	public List<String> getTooltip() 
+	public List<ITextProperties> getTooltip() 
 	{
 		this.descr.clear();
 		
 		fluidTank.ifPresent(handler -> 
 		{
-			descr.add(new TranslationTextComponent(NedaireDatabase.Capabilities.FluidHandler.Descriptions.DESCRIPTION, handler.getFluidInTank(0).getAmount(), handler.getTankCapacity(0)).getFormattedText());
+			descr.add(new TranslationTextComponent(NedaireDatabase.Capabilities.FluidHandler.Descriptions.DESCRIPTION, handler.getFluidInTank(0).getAmount(), handler.getTankCapacity(0)));
 		});
 		return descr;
 	}

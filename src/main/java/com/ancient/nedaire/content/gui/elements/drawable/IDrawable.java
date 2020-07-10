@@ -5,6 +5,7 @@ import java.util.List;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.text.ITextProperties;
 
 public interface IDrawable 
 {
@@ -44,7 +45,7 @@ public interface IDrawable
 	public int getHeight();
 	public int getWidth();
 	
-	public List<String> getTooltip();
+	public List<ITextProperties> getTooltip();
 	
 	public void setVisible(boolean visible);
 	

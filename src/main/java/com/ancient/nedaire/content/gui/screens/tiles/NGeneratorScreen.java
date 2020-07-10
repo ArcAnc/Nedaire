@@ -7,6 +7,7 @@ import com.ancient.nedaire.content.gui.elements.drawable.DrawableEnergonTank;
 import com.ancient.nedaire.util.database.NedaireDatabase;
 import com.ancient.nedaire.util.helpers.EnergonHelper;
 import com.ancient.nedaire.util.helpers.GlHelper;
+import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import net.minecraft.entity.player.PlayerInventory;
@@ -33,7 +34,7 @@ public class NGeneratorScreen extends NContainerGui<NGeneratorContainer>
 	}
 
 	@Override
-	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) 
+	protected void func_230450_a_(MatrixStack matrixStack, float partialTicks, int mouseX, int mouseY) //drawGuiContainerBackgroundLayer
 	{
 		RenderSystem.pushMatrix();
 		{

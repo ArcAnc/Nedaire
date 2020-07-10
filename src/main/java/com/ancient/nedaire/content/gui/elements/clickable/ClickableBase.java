@@ -9,10 +9,11 @@ import com.google.common.collect.Lists;
 import net.minecraft.client.audio.SimpleSound;
 import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.text.ITextProperties;
 
 public abstract class ClickableBase implements IClickable
 {
-	protected List<String> descr = Lists.<String>newArrayList();
+	protected List<ITextProperties> descr = Lists.<ITextProperties>newArrayList();
 	protected int x;
 	protected int y;
 	
@@ -125,7 +126,7 @@ public abstract class ClickableBase implements IClickable
 	}
 	
 	@Override
-	public List<String> getTooltip() 
+	public List<ITextProperties> getTooltip() 
 	{
 		return descr;
 	}

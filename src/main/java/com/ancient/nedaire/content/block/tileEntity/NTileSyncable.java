@@ -40,7 +40,8 @@ public class NTileSyncable extends NTile
 	@Override
 	public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) 
 	{
-		read(pkt.getNbtCompound());
+		// FIXME: проверить блок стейт, какой здесь должен быть
+		read(getBlockState(), pkt.getNbtCompound());
 	}
 	
 	@Override
@@ -50,9 +51,9 @@ public class NTileSyncable extends NTile
 	}
 	
 	@Override
-	public void handleUpdateTag(CompoundNBT tag) 
+	public void handleUpdateTag(BlockState state, CompoundNBT tag) 
 	{
-		read(tag);
+		read(state, tag);
 	}
 	
 	public void handleClientPacket(CompoundNBT tag)

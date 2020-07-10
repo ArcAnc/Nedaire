@@ -84,6 +84,7 @@ public class NComplexMaterial
 				setEnchantability(props.playerArmorEnchantability).
 				setEquipSound(props.playerArmorEquipSound).
 				setRepairMaterial(props.playerArmorRepairMaterial != null ? props.playerArmorRepairMaterial : () -> Ingredient.fromItems(ingot.get())).
+				setUnknownValue(0.0f).// FIXME: попровить это значение, когда разберусь, что оно такое
 				build();
 		
 		this.horseArmorMat = new NHorseArmorMaterial.Builder().
@@ -370,7 +371,7 @@ public class NComplexMaterial
 			this.horseArmorTexturePath = horseArmorTexturePath;
 			return this;
 		}
-		
+
 		public NComplexMaterialProperties setDurability(int durability)
 		{
 			setHorseArmorDurability(durability);

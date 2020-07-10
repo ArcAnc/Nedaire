@@ -4,10 +4,12 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
+import net.minecraft.util.text.ITextProperties;
+
 public abstract class DrawableBase implements IDrawable
 {
 
-	protected List<String> descr = Lists.<String>newArrayList();
+	protected List<ITextProperties> descr = Lists.<ITextProperties>newArrayList();
 	protected int x;
 	protected int y;
 	

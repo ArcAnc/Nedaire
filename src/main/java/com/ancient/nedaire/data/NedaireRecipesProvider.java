@@ -25,8 +25,8 @@ import net.minecraft.data.ShapelessRecipeBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.tags.ITag.INamedTag;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.Tag;
 import net.minecraftforge.common.Tags;
 
 public class NedaireRecipesProvider extends RecipeProvider
@@ -109,18 +109,18 @@ public class NedaireRecipesProvider extends RecipeProvider
 	}
 	
 
-	private void addBlasting (Tag<Item> input, Item output, float exp, Consumer<IFinishedRecipe> out)
+	private void addBlasting (INamedTag<Item> input, Item output, float exp, Consumer<IFinishedRecipe> out)
 	{
 		CookingRecipeBuilder.blastingRecipe(Ingredient.fromTag(input), output, exp, 100).
-		addCriterion("has_" + input.getId().getPath(), hasItem(input)).
-		build(out, StringHelper.getLocationFromString(NedaireDatabase.Recipes.VanillaTypes.BLASTING + "/" + input.getId().getPath() + "_to_" + output.getRegistryName().getPath()));
+		addCriterion("has_" + input.getName().getPath(), hasItem(input)).
+		build(out, StringHelper.getLocationFromString(NedaireDatabase.Recipes.VanillaTypes.BLASTING + "/" + input.getName().getPath() + "_to_" + output.getRegistryName().getPath()));
 	}
 	
-	private void addSmelting (Tag<Item> input, Item output, float exp, Consumer<IFinishedRecipe> out)
+	private void addSmelting (INamedTag<Item> input, Item output, float exp, Consumer<IFinishedRecipe> out)
 	{
 		CookingRecipeBuilder.smeltingRecipe(Ingredient.fromTag(input), output, exp, 200).
-		addCriterion("has_" + input.getId().getPath(), hasItem(input)).
-		build(out, StringHelper.getLocationFromString(NedaireDatabase.Recipes.VanillaTypes.SMELTING + "/" + input.getId().getPath() + "_to_" + output.getRegistryName().getPath()));
+		addCriterion("has_" + input.getName().getPath(), hasItem(input)).
+		build(out, StringHelper.getLocationFromString(NedaireDatabase.Recipes.VanillaTypes.SMELTING + "/" + input.getName().getPath() + "_to_" + output.getRegistryName().getPath()));
 	}
 	
 	private void addTools(NComplexMaterial mat, Consumer<IFinishedRecipe> out)
@@ -131,8 +131,8 @@ public class NedaireRecipesProvider extends RecipeProvider
 		patternLine("AA").
 		patternLine("AB").
 		patternLine(" B").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
-		addCriterion("has_" + Tags.Items.RODS_WOODEN.getId().getPath(), hasItem(Tags.Items.RODS_WOODEN)).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + Tags.Items.RODS_WOODEN.getName().getPath(), hasItem(Tags.Items.RODS_WOODEN)).
 		build(out, StringHelper.getLocationFromString(mat.getAxe().getId().getPath()));
 		
 		ShapedRecipeBuilder.shapedRecipe(mat.getPickaxe().get()).
@@ -141,8 +141,8 @@ public class NedaireRecipesProvider extends RecipeProvider
 		patternLine("AAA").
 		patternLine(" B ").
 		patternLine(" B ").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
-		addCriterion("has_" + Tags.Items.RODS_WOODEN.getId().getPath(), hasItem(Tags.Items.RODS_WOODEN)).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + Tags.Items.RODS_WOODEN.getName().getPath(), hasItem(Tags.Items.RODS_WOODEN)).
 		build(out, StringHelper.getLocationFromString(mat.getPickaxe().getId().getPath()));
 	
 		ShapedRecipeBuilder.shapedRecipe(mat.getShovel().get()).
@@ -151,8 +151,8 @@ public class NedaireRecipesProvider extends RecipeProvider
 		patternLine("A").
 		patternLine("B").
 		patternLine("B").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
-		addCriterion("has_" + Tags.Items.RODS_WOODEN.getId().getPath(), hasItem(Tags.Items.RODS_WOODEN)).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + Tags.Items.RODS_WOODEN.getName().getPath(), hasItem(Tags.Items.RODS_WOODEN)).
 		build(out, StringHelper.getLocationFromString(mat.getShovel().getId().getPath()));
 		
 		ShapedRecipeBuilder.shapedRecipe(mat.getHoe().get()).
@@ -161,15 +161,15 @@ public class NedaireRecipesProvider extends RecipeProvider
 		patternLine("AA").
 		patternLine(" B").
 		patternLine(" B").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
-		addCriterion("has_" + Tags.Items.RODS_WOODEN.getId().getPath(), hasItem(Tags.Items.RODS_WOODEN)).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + Tags.Items.RODS_WOODEN.getName().getPath(), hasItem(Tags.Items.RODS_WOODEN)).
 		build(out, StringHelper.getLocationFromString(mat.getHoe().getId().getPath()));
 
 		ShapedRecipeBuilder.shapedRecipe(mat.getShears().get()).
 		key('A', Ingredient.fromTag(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
 		patternLine("A ").
 		patternLine(" A").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
 		build(out, StringHelper.getLocationFromString(mat.getShears().getId().getPath()));
 
 		ShapedRecipeBuilder.shapedRecipe(mat.getFishingRod().get()).
@@ -178,8 +178,8 @@ public class NedaireRecipesProvider extends RecipeProvider
 		patternLine("  A").
 		patternLine(" AB").
 		patternLine("A B").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
-		addCriterion("has_" + Tags.Items.STRING.getId().getPath(), hasItem(Tags.Items.STRING)).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + Tags.Items.STRING.getName().getPath(), hasItem(Tags.Items.STRING)).
 		build(out, StringHelper.getLocationFromString(mat.getFishingRod().getId().getPath()));
 	}
 	
@@ -191,8 +191,8 @@ public class NedaireRecipesProvider extends RecipeProvider
 		patternLine("A").
 		patternLine("A").
 		patternLine("B").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
-		addCriterion("has_" + Tags.Items.RODS_WOODEN.getId().getPath(), hasItem(Tags.Items.RODS_WOODEN)).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + Tags.Items.RODS_WOODEN.getName().getPath(), hasItem(Tags.Items.RODS_WOODEN)).
 		build(out, StringHelper.getLocationFromString(mat.getSword().getId().getPath()));
 		
 		ShapedRecipeBuilder.shapedRecipe(mat.getBow().get()).
@@ -201,8 +201,8 @@ public class NedaireRecipesProvider extends RecipeProvider
 		patternLine("BA ").
 		patternLine("B A").
 		patternLine("BA ").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
-		addCriterion("has_" + Tags.Items.STRING.getId().getPath(), hasItem(Tags.Items.STRING)).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + Tags.Items.STRING.getName().getPath(), hasItem(Tags.Items.STRING)).
 		build(out, StringHelper.getLocationFromString(mat.getBow().getId().getPath()));
 
 		ShapedRecipeBuilder.shapedRecipe(mat.getCrossbow().get()).
@@ -213,9 +213,9 @@ public class NedaireRecipesProvider extends RecipeProvider
 		patternLine("CAC").
 		patternLine("BDB").
 		patternLine(" C ").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
-		addCriterion("has_" + Tags.Items.STRING.getId().getPath(), hasItem(Tags.Items.STRING)).
-		addCriterion("has_" + Tags.Items.RODS_WOODEN.getId().getPath(), hasItem(Tags.Items.RODS_WOODEN)).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + Tags.Items.STRING.getName().getPath(), hasItem(Tags.Items.STRING)).
+		addCriterion("has_" + Tags.Items.RODS_WOODEN.getName().getPath(), hasItem(Tags.Items.RODS_WOODEN)).
 		addCriterion("has_" + net.minecraft.item.Items.TRIPWIRE_HOOK.getRegistryName().getPath(), hasItem(net.minecraft.item.Items.TRIPWIRE_HOOK)).
 		build(out, StringHelper.getLocationFromString(mat.getCrossbow().getId().getPath()));
 
@@ -226,8 +226,8 @@ public class NedaireRecipesProvider extends RecipeProvider
 		patternLine("BAB").
 		patternLine("BBB").
 		patternLine(" B ").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
-		addCriterion("has_" + ItemTags.PLANKS.getId().getPath(), hasItem(ItemTags.PLANKS)).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + ItemTags.PLANKS.getName().getPath(), hasItem(ItemTags.PLANKS)).
 		build(out, StringHelper.getLocationFromString(mat.getShield().getId().getPath()));
 	}
 	
@@ -240,16 +240,16 @@ public class NedaireRecipesProvider extends RecipeProvider
 		patternLine("A A").
 		patternLine("BCB").
 		patternLine("A A").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
 		addCriterion("has_" + net.minecraft.item.Items.LEATHER.getRegistryName().getPath(), hasItem(net.minecraft.item.Items.LEATHER)).
-		addCriterion("has_" + ItemTags.WOOL.getId().getPath(), hasItem(ItemTags.WOOL)).
+		addCriterion("has_" + ItemTags.WOOL.getName().getPath(), hasItem(ItemTags.WOOL)).
 		build(out, StringHelper.getLocationFromString(mat.getArmorHorse().getId().getPath()));
 
 		ShapedRecipeBuilder.shapedRecipe(mat.getPlayerArmorHead().get()).
 		key('A', Ingredient.fromTag(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
 		patternLine("AAA").
 		patternLine("A A").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
 		build(out, StringHelper.getLocationFromString(mat.getPlayerArmorHead().getId().getPath()));
 
 		ShapedRecipeBuilder.shapedRecipe(mat.getPlayerArmorChest().get()).
@@ -257,7 +257,7 @@ public class NedaireRecipesProvider extends RecipeProvider
 		patternLine("A A").
 		patternLine("AAA").
 		patternLine("AAA").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
 		build(out, StringHelper.getLocationFromString(mat.getPlayerArmorChest().getId().getPath()));
 	
 		ShapedRecipeBuilder.shapedRecipe(mat.getPlayerArmorLegs().get()).
@@ -265,14 +265,14 @@ public class NedaireRecipesProvider extends RecipeProvider
 		patternLine("AAA").
 		patternLine("A A").
 		patternLine("A A").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
 		build(out, StringHelper.getLocationFromString(mat.getPlayerArmorLegs().getId().getPath()));
 
 		ShapedRecipeBuilder.shapedRecipe(mat.getPlayerArmorFeet().get()).
 		key('A', Ingredient.fromTag(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
 		patternLine("A A").
 		patternLine("A A").
-		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getId().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
+		addCriterion("has_" + NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot().getName().getPath(), hasItem(NedaireTags.Items.MATERIALS.get(mat.getName()).getIngot())).
 		build(out, StringHelper.getLocationFromString(mat.getPlayerArmorFeet().getId().getPath()));
 
 	}
