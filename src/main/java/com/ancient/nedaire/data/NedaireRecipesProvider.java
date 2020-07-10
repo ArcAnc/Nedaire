@@ -10,7 +10,7 @@ package com.ancient.nedaire.data;
 
 import java.util.function.Consumer;
 
-import com.ancient.nedaire.api.NedaireMaterials;
+import com.ancient.nedaire.api.NedaireRegistration;
 import com.ancient.nedaire.content.materials.NComplexMaterial;
 import com.ancient.nedaire.data.recipes.builders.GrinderRecipeBuilder;
 import com.ancient.nedaire.util.database.NedaireDatabase;
@@ -40,7 +40,7 @@ public class NedaireRecipesProvider extends RecipeProvider
 	@Override
 	protected void registerRecipes(Consumer<IFinishedRecipe> out) 
 	{
-		for (NComplexMaterial mat : NedaireMaterials.MATERIALS)
+		for (NComplexMaterial mat : NedaireRegistration.MATERIALS)
 		{
 			
 			//=========================
@@ -279,7 +279,7 @@ public class NedaireRecipesProvider extends RecipeProvider
 	
 	private void addGrinderRecipes(Consumer<IFinishedRecipe> out) 
 	{
-		for (NComplexMaterial mat : NedaireMaterials.MATERIALS)
+		for (NComplexMaterial mat : NedaireRegistration.MATERIALS)
 		{
 			GrinderRecipeBuilder.builder(new ItemStack(mat.getDust().get(), 2)).
 			addInput(NedaireTags.Items.MATERIALS.get(mat.getName()).getOre()).

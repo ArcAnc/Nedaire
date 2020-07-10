@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import com.ancient.nedaire.Nedaire;
-import com.ancient.nedaire.api.NedaireMaterials;
+import com.ancient.nedaire.api.NedaireRegistration;
 import com.ancient.nedaire.api.NedaireRecipes;
 import com.ancient.nedaire.data.StackWithChance;
 import com.ancient.nedaire.data.recipes.GrinderRecipe;
@@ -43,9 +43,9 @@ public class RecipeGrinderJeiCategory implements IRecipeCategory<GrinderRecipe>
 		
 		overlay = helper.createDrawable(NedaireDatabase.GUI.Locations.ELEMENTS, 0, 0, 64, 46);
 		
-		icon = helper.createDrawableIngredient(new ItemStack(NedaireMaterials.GRINDER.get().asItem()));
+		icon = helper.createDrawableIngredient(new ItemStack(NedaireRegistration.GRINDER.get().asItem()));
 		
-		name = new TranslationTextComponent(NedaireMaterials.GRINDER.get().getTranslationKey()).getFormattedText();
+		name = new TranslationTextComponent(NedaireRegistration.GRINDER.get().getTranslationKey()).getFormattedText();
 	}
 	
 	@Override

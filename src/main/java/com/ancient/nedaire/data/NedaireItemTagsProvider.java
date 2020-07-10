@@ -8,7 +8,7 @@
  */
 package com.ancient.nedaire.data;
 
-import com.ancient.nedaire.api.NedaireMaterials;
+import com.ancient.nedaire.api.NedaireRegistration;
 import com.ancient.nedaire.content.materials.NComplexMaterial;
 
 import net.minecraft.data.DataGenerator;
@@ -30,7 +30,7 @@ public class NedaireItemTagsProvider extends ItemTagsProvider
 		copy(Tags.Blocks.STORAGE_BLOCKS, Tags.Items.STORAGE_BLOCKS);
 		copy(Tags.Blocks.ORES, Tags.Items.ORES);
 
-		for (NComplexMaterial mat : NedaireMaterials.MATERIALS)
+		for (NComplexMaterial mat : NedaireRegistration.MATERIALS)
 		{
 			copy(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getStorageBlock(), NedaireTags.Items.MATERIALS.get(mat.getName()).getStorageBlock());
 			

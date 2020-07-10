@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "nedaire:block/machine/generator/solar",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "nedaire:block/machine/generator/solar"
+    },
+    "facing=west": {
+      "model": "nedaire:block/machine/generator/solar",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "nedaire:block/machine/generator/solar",
+      "y": 270
+    }
+  }
+}

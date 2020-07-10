@@ -11,10 +11,11 @@ package com.ancient.nedaire;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.ancient.nedaire.api.NedaireMaterials;
 import com.ancient.nedaire.api.NedaireRecipes;
+import com.ancient.nedaire.api.NedaireRegistration;
 import com.ancient.nedaire.api.NedaireTileEntities;
 import com.ancient.nedaire.content.block.NBaseBlock;
+import com.ancient.nedaire.content.gui.screens.tiles.NGeneratorScreen;
 import com.ancient.nedaire.content.gui.screens.tiles.NGrinderScreen;
 import com.ancient.nedaire.content.itemGroup.NItemGroup;
 import com.ancient.nedaire.data.NedaireBlockStatesProvider;
@@ -70,8 +71,8 @@ public class Nedaire
 	    
 	    modEventBus.addListener(this :: gatherData);
 	    
-	    NedaireMaterials.BLOCKS.register(modEventBus);
-	    NedaireMaterials.ITEMS.register(modEventBus);
+	    NedaireRegistration.BLOCKS.register(modEventBus);
+	    NedaireRegistration.ITEMS.register(modEventBus);
 	    
 	    NedaireTileEntities.TILE_ENTITIES.register(modEventBus);
 	    NedaireTileEntities.CONTAINERS.register(modEventBus);
@@ -82,21 +83,6 @@ public class Nedaire
 	    MinecraftForge.EVENT_BUS.addListener(this :: serverAboutToStart);
 	}
 
-/*	@SubscribeEvent
-	public static void onItemRegisteter (final RegistryEvent.Register<Item> event)
-	{
-		final IForgeRegistry<Item> registry = event.getRegistry();
-
-		NedaireBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).
-	    forEach	(block -> 
-	    {
-	    	final Item.Properties props = new Item.Properties().group(Nedaire.instance.TAB);
-	    	final BlockItem item = new BlockItem(block, props);
-	    	item.setRegistryName(block.getRegistryName());
-	    	registry.register(item);
-	    });
-	}
-*/	
 	private void serverSetup(final FMLCommonSetupEvent event)
     {
     	CapabilitiesInit.initCapabilities();
@@ -104,7 +90,7 @@ public class Nedaire
 	
 	private void clientSetup (final FMLClientSetupEvent event)
 	{
-		NedaireMaterials.BLOCKS.getEntries().stream().map(RegistryObject :: get).
+		NedaireRegistration.BLOCKS.getEntries().stream().map(RegistryObject :: get).
 		forEach(block -> 
 		{
 			if (block instanceof NBaseBlock)
@@ -115,6 +101,7 @@ public class Nedaire
 		});
 	
 		ScreenManager.registerFactory(NedaireTileEntities.GRINDER_CONTAINER.get(), NGrinderScreen :: new);
+		ScreenManager.registerFactory(NedaireTileEntities.GENERATOR_SOLAR_CONTAINER.get(), NGeneratorScreen :: new);
 		
 /*		NedaireTileEntities.TILE_INFO.values().stream().
 		forEach(value ->

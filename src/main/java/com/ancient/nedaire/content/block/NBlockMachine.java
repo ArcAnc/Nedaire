@@ -2,7 +2,7 @@ package com.ancient.nedaire.content.block;
 
 import java.util.function.Supplier;
 
-import com.ancient.nedaire.api.NedaireMaterials;
+import com.ancient.nedaire.api.NedaireRegistration;
 import com.ancient.nedaire.content.block.tileEntity.NTile;
 import com.ancient.nedaire.content.capability.inventory.AccessType;
 import com.ancient.nedaire.util.helpers.BlockHelper;
@@ -64,7 +64,7 @@ public class NBlockMachine <T extends NTile> extends NTileProviderBlock<T>
 		{
 			if (hand == Hand.MAIN_HAND)
 			{
-				if (player.getHeldItemMainhand().getItem() == NedaireMaterials.CONTROL_ITEM.get())
+				if (player.getHeldItemMainhand().getItem() == NedaireRegistration.CONTROL_ITEM.get())
 				{
 
 					Direction dir = hit.getFace();

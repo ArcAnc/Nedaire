@@ -8,7 +8,7 @@
  */
 package com.ancient.nedaire.data.loot;
 
-import com.ancient.nedaire.api.NedaireMaterials;
+import com.ancient.nedaire.api.NedaireRegistration;
 import com.ancient.nedaire.content.materials.NComplexMaterial;
 
 import net.minecraft.block.Block;
@@ -33,13 +33,14 @@ public class NedaireBlockLootProvider extends NedaireLootProvider
 	@Override
 	protected void registerTables() 
 	{
-		for(NComplexMaterial mat : NedaireMaterials.MATERIALS)
+		for(NComplexMaterial mat : NedaireRegistration.MATERIALS)
 		{
 			registerSelfDrop(mat.getStorageBlock().get());
 			registerSelfDrop(mat.getOreBlock().get());
 		}
 		
-		registerSelfDrop(NedaireMaterials.GRINDER.get());
+		registerSelfDrop(NedaireRegistration.GRINDER.get());
+		registerSelfDrop(NedaireRegistration.GENERATOR_SOLAR.get());
 	}
 	
 	private void registerSelfDrop(Block block)

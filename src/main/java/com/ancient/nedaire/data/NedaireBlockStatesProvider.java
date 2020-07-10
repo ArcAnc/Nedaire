@@ -8,7 +8,7 @@
  */
 package com.ancient.nedaire.data;
 
-import com.ancient.nedaire.api.NedaireMaterials;
+import com.ancient.nedaire.api.NedaireRegistration;
 import com.ancient.nedaire.content.block.NBlockMachine;
 import com.ancient.nedaire.content.block.NedaireBlockStateProperties;
 import com.ancient.nedaire.content.capability.inventory.AccessType;
@@ -38,7 +38,7 @@ public class NedaireBlockStatesProvider extends BlockStateProvider
 	@Override
 	protected void registerStatesAndModels() 
 	{
-		for (NComplexMaterial mat : NedaireMaterials.MATERIALS)
+		for (NComplexMaterial mat : NedaireRegistration.MATERIALS)
 		{
 			registerSimpleBlock (mat.getStorageBlock().get());
 			
@@ -49,10 +49,61 @@ public class NedaireBlockStatesProvider extends BlockStateProvider
 		// TileEntities
 		//==============================
 		
-		registerTileEntity(NedaireMaterials.GRINDER.get());
+		registerMachine(NedaireRegistration.GRINDER.get());
+		
+		registerGeneratorPanel(NedaireRegistration.GENERATOR_SOLAR.get());
 	}
 	
-	private void registerTileEntity (Block block)
+	private void registerGeneratorPanel (Block block)
+	{
+		ModelFile model = models().
+				withExistingParent(blockPrefix(name(block)), mcLoc(blockPrefix("block"))).
+				element().
+					from(0, 0, 0).
+					to(16, 7, 16).
+						face(Direction.NORTH).
+							uvs(8, 8, 16, 11.5f).
+							texture("#0").
+							end().
+						face(Direction.SOUTH).
+							uvs(8, 3.5f, 16, 7).
+							texture("#0").
+							end().
+						face(Direction.EAST).
+							uvs(8, 0, 16, 3.5f).
+							texture("#0").
+							end().
+						face(Direction.WEST).
+							uvs(8, 11.5f, 16, 15).
+							texture("#0").
+							end().
+						face(Direction.UP).
+							uvs(0, 0, 8, 8).
+							texture("#0").
+							end().
+						face(Direction.DOWN).
+							uvs(0, 8, 8, 16).
+							texture("#0").
+							end().
+					end().
+					texture("0", blockTexture(block)).
+					texture("particle", blockTexture(block));
+		
+		getVariantBuilder(block).forAllStates(state -> 
+		{
+			Direction dir = state.get(NedaireBlockStateProperties.HORIZONTAL_FACING);
+
+			return ConfiguredModel.builder().
+					modelFile(model).
+					rotationY((int)dir.getHorizontalAngle() % 360).
+					build();
+		});
+		
+		itemModels().getBuilder(itemPrefix(name(block))).parent(model);
+				
+	}
+	
+	private void registerMachine (Block block)
 	{
 		ModelFile on = models().cube(blockPrefix(name(block))+ "/on", 
 				modLoc(blockPrefix(name(block)) + "/down"), 

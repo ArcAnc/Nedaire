@@ -110,7 +110,7 @@ public class NTileProviderBlock <T extends NTile> extends NRotableBlock
 				}
 			}
 		}
-		return ActionResultType.PASS;
+		return ActionResultType.SUCCESS;
 	}
 	
 	public Supplier<T> getTile() 

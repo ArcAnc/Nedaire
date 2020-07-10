@@ -184,10 +184,11 @@ public class NedaireDatabase
 			public static final String ENCHANTED_NETHERRACK = StringHelper.underscorePlacer(ENCHANTED, "netherrack");
 			public static final String ENCHANTED_END_STONE = StringHelper.underscorePlacer(ENCHANTED, "end", "stone");
 			public static final String MACHINE = "machine";
+			public static final String GENERATOR = "generator";
 			
 			public static class Machines 
 			{
-				public static final String SOLAR_PANEL = "panel_solar"; 
+				public static final String GENERATOR_SOLAR = "solar"; 
 				public static final String LUNAR_PANEL = "panel_lunar";
 				public static final String VOID_PANEL = "panel_void";
 				public static final String HEAT_SINK = "heat_sink";

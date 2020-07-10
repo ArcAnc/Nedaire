@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "#forge:dusts/cobalt",
     "#forge:dusts/silver",
+    "#forge:dusts/cobalt",
     "#forge:dusts/iridium"
   ]
 }

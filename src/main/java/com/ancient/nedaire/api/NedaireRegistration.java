@@ -15,7 +15,9 @@ import java.util.stream.Stream;
 
 import com.ancient.nedaire.content.block.NBaseBlock;
 import com.ancient.nedaire.content.block.NBlockMachine;
+import com.ancient.nedaire.content.block.NTileProviderBlock;
 import com.ancient.nedaire.content.block.tileEntity.NTileGrinder;
+import com.ancient.nedaire.content.block.tileEntity.generators.NTileSolarGenerator;
 import com.ancient.nedaire.content.items.NBaseItem;
 import com.ancient.nedaire.content.items.NBlockItem;
 import com.ancient.nedaire.content.materials.NComplexMaterial;
@@ -25,15 +27,22 @@ import com.ancient.nedaire.util.helpers.BlockHelper;
 import com.ancient.nedaire.util.helpers.StringHelper;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.item.Item;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.IBooleanFunction;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.world.IBlockReader;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-public class NedaireMaterials 
+public class NedaireRegistration 
 {
 	
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, NedaireDatabase.MOD_ID);
@@ -90,6 +99,21 @@ public class NedaireMaterials
 					new NBlockMachine<NTileGrinder>(Block.Properties.create(Material.IRON), NTileGrinder :: new), 
 					RenderType.getCutout()),
 			true
+			);
+	
+	public static final RegistryObject<NTileProviderBlock<NTileSolarGenerator>> GENERATOR_SOLAR = registerBlock(
+			StringHelper.slashPlacer(NedaireDatabase.Blocks.Names.Machines.GENERATOR_SOLAR, NedaireDatabase.Blocks.Names.MACHINE, NedaireDatabase.Blocks.Names.GENERATOR),
+			() -> new NTileProviderBlock<NTileSolarGenerator>(Block.Properties.create(Material.IRON), NTileSolarGenerator :: new)
+			{
+				private final VoxelShape shape = VoxelShapes.combineAndSimplify(VoxelShapes.fullCube(), makeCuboidShape(0, 7, 0, 16, 16, 16), IBooleanFunction.ONLY_FIRST);
+				
+				@Override
+				public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) 
+				{
+					return shape;
+				}
+			},
+				true
 			);
 	
 	//=============================

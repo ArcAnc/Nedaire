@@ -60,7 +60,7 @@ public class EnergonEnergy implements IEnergonEnergy, ICapabilityProvider
 		{
 			if (isAllowedReceiving())
 			{
-				returned = energyMax - energy - Math.min(input, count);
+				returned = Math.min(energyMax - energy, Math.min(input, count));
 				if (!isSimulated)
 				{
 					energy += returned;

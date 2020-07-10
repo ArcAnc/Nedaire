@@ -8,7 +8,7 @@
  */
 package com.ancient.nedaire.data;
 
-import com.ancient.nedaire.api.NedaireMaterials;
+import com.ancient.nedaire.api.NedaireRegistration;
 import com.ancient.nedaire.content.materials.NComplexMaterial;
 
 import net.minecraft.data.BlockTagsProvider;
@@ -26,7 +26,7 @@ public class NedaireBlockTagsProvider extends BlockTagsProvider
 	@Override
 	protected void registerTags() 
 	{
-		for (NComplexMaterial mat : NedaireMaterials.MATERIALS)
+		for (NComplexMaterial mat : NedaireRegistration.MATERIALS)
 		{
 			getBuilder(Tags.Blocks.STORAGE_BLOCKS).add(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getStorageBlock());
 			getBuilder(NedaireTags.Blocks.MATERIALS.get(mat.getName()).getStorageBlock()).add(mat.getStorageBlock().get());

@@ -10,7 +10,7 @@ package com.ancient.nedaire.integration.jei;
 
 import java.util.stream.Collectors;
 
-import com.ancient.nedaire.api.NedaireMaterials;
+import com.ancient.nedaire.api.NedaireRegistration;
 import com.ancient.nedaire.api.NedaireRecipes;
 import com.ancient.nedaire.integration.jei.grinder.RecipeGrinderJeiCategory;
 import com.ancient.nedaire.util.helpers.StringHelper;
@@ -51,6 +51,6 @@ public class NedaireJeiPlugin implements IModPlugin
 	@Override
 	public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) 
 	{
-		registration.addRecipeCatalyst(new ItemStack(NedaireMaterials.GRINDER.get()), NedaireRecipes.GRIDER_SERIALIZER.getId());
+		registration.addRecipeCatalyst(new ItemStack(NedaireRegistration.GRINDER.get()), NedaireRecipes.GRIDER_SERIALIZER.getId());
 	}
 }

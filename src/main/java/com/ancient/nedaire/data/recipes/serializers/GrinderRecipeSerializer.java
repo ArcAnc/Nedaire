@@ -8,7 +8,7 @@
  */
 package com.ancient.nedaire.data.recipes.serializers;
 
-import com.ancient.nedaire.api.NedaireMaterials;
+import com.ancient.nedaire.api.NedaireRegistration;
 import com.ancient.nedaire.data.StackWithChance;
 import com.ancient.nedaire.data.recipes.GrinderRecipe;
 import com.ancient.nedaire.util.database.NedaireDatabase;
@@ -28,7 +28,7 @@ public class GrinderRecipeSerializer extends NedaireRecipeSerializer<GrinderReci
 	@Override
 	public ItemStack getIcon() 
 	{
-		return new ItemStack(NedaireMaterials.GRINDER.get());
+		return new ItemStack(NedaireRegistration.GRINDER.get());
 	}
 	
 	@Override

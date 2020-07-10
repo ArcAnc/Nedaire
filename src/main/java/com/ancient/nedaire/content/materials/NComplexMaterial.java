@@ -10,7 +10,7 @@ package com.ancient.nedaire.content.materials;
 
 import java.util.function.Supplier;
 
-import com.ancient.nedaire.api.NedaireMaterials;
+import com.ancient.nedaire.api.NedaireRegistration;
 import com.ancient.nedaire.content.block.NBaseBlock;
 import com.ancient.nedaire.content.block.NOreBlock;
 import com.ancient.nedaire.content.items.NBaseItem;
@@ -64,7 +64,7 @@ public class NComplexMaterial
 	{
 		this.name = props.name;
 		
-		this.ingot = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.INGOT), () -> new NBaseItem(baseProps.get()));
+		this.ingot = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.INGOT), () -> new NBaseItem(baseProps.get()));
 		
 		this.toolMat = new NToolStandartMaterial.Builder().
 				setDurability(props.toolDurability).
@@ -93,32 +93,32 @@ public class NComplexMaterial
 				build();
 
 		
-		this.nugget = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.NUGGET), () -> new NBaseItem(baseProps.get()));
-		this.dust = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.DUST), () -> new NBaseItem(baseProps.get()));
+		this.nugget = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.NUGGET), () -> new NBaseItem(baseProps.get()));
+		this.dust = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.DUST), () -> new NBaseItem(baseProps.get()));
 		
-		this.pickaxe = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.TOOL, Items.Names.Tools.PICKAXE), () -> new NPickaxeBase(toolMat));
-		this.axe = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.TOOL, Items.Names.Tools.AXE), () -> new NAxeBase(toolMat, toolMat.getAttackDamage() + 5 - 1, -3.2f));
-		this.shovel = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.TOOL, Items.Names.Tools.SHOVEL), () -> new NShovelBase(toolMat));
-		this.hoe = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.TOOL, Items.Names.Tools.HOE), () -> new NHoeBase(toolMat));
-		this.shears = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.TOOL, Items.Names.Tools.SHEARS), () -> new NShearsBase(toolMat));
-		this.fishingRod = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.TOOL, Items.Names.Tools.FISHING_ROD), () -> new NFishingRodBase(toolMat));
+		this.pickaxe = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.TOOL, Items.Names.Tools.PICKAXE), () -> new NPickaxeBase(toolMat));
+		this.axe = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.TOOL, Items.Names.Tools.AXE), () -> new NAxeBase(toolMat, toolMat.getAttackDamage() + 5 - 1, -3.2f));
+		this.shovel = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.TOOL, Items.Names.Tools.SHOVEL), () -> new NShovelBase(toolMat));
+		this.hoe = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.TOOL, Items.Names.Tools.HOE), () -> new NHoeBase(toolMat));
+		this.shears = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.TOOL, Items.Names.Tools.SHEARS), () -> new NShearsBase(toolMat));
+		this.fishingRod = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.TOOL, Items.Names.Tools.FISHING_ROD), () -> new NFishingRodBase(toolMat));
 	
-		this.sword = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.WEAPON, Items.Names.Weapon.SWORD), () -> new NSwordBase(toolMat));
-		this.shield = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.WEAPON, Items.Names.Weapon.SHIELD), () -> new NShieldBase(toolMat));
-		this.bow = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.WEAPON, Items.Names.Weapon.BOW), () -> new NBowBase(toolMat));
-		this.crossbow = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.WEAPON, Items.Names.Weapon.CROSSBOW), () -> new NCrossbowBase(toolMat));
+		this.sword = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.WEAPON, Items.Names.Weapon.SWORD), () -> new NSwordBase(toolMat));
+		this.shield = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.WEAPON, Items.Names.Weapon.SHIELD), () -> new NShieldBase(toolMat));
+		this.bow = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.WEAPON, Items.Names.Weapon.BOW), () -> new NBowBase(toolMat));
+		this.crossbow = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.WEAPON, Items.Names.Weapon.CROSSBOW), () -> new NCrossbowBase(toolMat));
 	
-		this.armorHorse = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.ARMOR, Items.Names.Armor.ARMOR_HORSE), () -> new NHorseArmorBase(horseArmorMat));
-		this.playerArmorHead = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.ARMOR, Items.Names.PLAYER_ARMOR, Items.Names.Armor.ARMOR_HEAD), () -> new NArmorBase(armorMat, EquipmentSlotType.HEAD));
-		this.playerArmorChest = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.ARMOR, Items.Names.PLAYER_ARMOR, Items.Names.Armor.ARMOR_CHEST), () -> new NArmorBase(armorMat, EquipmentSlotType.CHEST));
-		this.playerArmorLegs = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.ARMOR, Items.Names.PLAYER_ARMOR, Items.Names.Armor.ARMOR_LEGS), () -> new NArmorBase(armorMat, EquipmentSlotType.LEGS));
-		this.playerArmorFeet = NedaireMaterials.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.ARMOR, Items.Names.PLAYER_ARMOR, Items.Names.Armor.ARMOR_FEET), () -> new NArmorBase(armorMat, EquipmentSlotType.FEET));
+		this.armorHorse = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.ARMOR, Items.Names.Armor.ARMOR_HORSE), () -> new NHorseArmorBase(horseArmorMat));
+		this.playerArmorHead = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.ARMOR, Items.Names.PLAYER_ARMOR, Items.Names.Armor.ARMOR_HEAD), () -> new NArmorBase(armorMat, EquipmentSlotType.HEAD));
+		this.playerArmorChest = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.ARMOR, Items.Names.PLAYER_ARMOR, Items.Names.Armor.ARMOR_CHEST), () -> new NArmorBase(armorMat, EquipmentSlotType.CHEST));
+		this.playerArmorLegs = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.ARMOR, Items.Names.PLAYER_ARMOR, Items.Names.Armor.ARMOR_LEGS), () -> new NArmorBase(armorMat, EquipmentSlotType.LEGS));
+		this.playerArmorFeet = NedaireRegistration.ITEMS.register(StringHelper.slashPlacer(this.name, Items.Names.ARMOR, Items.Names.PLAYER_ARMOR, Items.Names.Armor.ARMOR_FEET), () -> new NArmorBase(armorMat, EquipmentSlotType.FEET));
 	
-		this.storageBlock = NedaireMaterials.BLOCKS.register(StringHelper.slashPlacer(this.name, NedaireDatabase.Blocks.Names.STORAGE_BLOCK), () -> new NBaseBlock(Block.Properties.create(Material.IRON)));
-		NedaireMaterials.ITEMS.register(storageBlock.getId().getPath(), () -> new NBlockItem(storageBlock.get(), baseProps.get()));
+		this.storageBlock = NedaireRegistration.BLOCKS.register(StringHelper.slashPlacer(this.name, NedaireDatabase.Blocks.Names.STORAGE_BLOCK), () -> new NBaseBlock(Block.Properties.create(Material.IRON)));
+		NedaireRegistration.ITEMS.register(storageBlock.getId().getPath(), () -> new NBlockItem(storageBlock.get(), baseProps.get()));
 	
-		this.oreBlock = NedaireMaterials.BLOCKS.register(StringHelper.slashPlacer(this.name, NedaireDatabase.Blocks.Names.ORE), () -> new NOreBlock(Block.Properties.create(Material.ROCK)));
-		NedaireMaterials.ITEMS.register(oreBlock.getId().getPath(), () -> new NBlockItem(oreBlock.get(), baseProps.get()));
+		this.oreBlock = NedaireRegistration.BLOCKS.register(StringHelper.slashPlacer(this.name, NedaireDatabase.Blocks.Names.ORE), () -> new NOreBlock(Block.Properties.create(Material.ROCK)));
+		NedaireRegistration.ITEMS.register(oreBlock.getId().getPath(), () -> new NBlockItem(oreBlock.get(), baseProps.get()));
 	}	
 	
 	public String getName() 

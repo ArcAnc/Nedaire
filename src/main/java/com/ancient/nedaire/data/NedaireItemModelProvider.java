@@ -8,11 +8,10 @@
  */
 package com.ancient.nedaire.data;
 
-import com.ancient.nedaire.api.NedaireMaterials;
+import com.ancient.nedaire.api.NedaireRegistration;
 import com.ancient.nedaire.content.materials.NComplexMaterial;
 import com.ancient.nedaire.util.database.NedaireDatabase;
 
-import net.minecraft.client.renderer.model.BlockModel.GuiLight;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -30,15 +29,9 @@ public class NedaireItemModelProvider extends ItemModelProvider
 	}
 
 	@Override
-	public String getName() 
-	{
-		return "Nedaire Item Models";
-	}
-
-	@Override
 	protected void registerModels() 
 	{
-		for (NComplexMaterial mat : NedaireMaterials.MATERIALS)
+		for (NComplexMaterial mat : NedaireRegistration.MATERIALS)
 		{
 			simpleItem(mat.getIngot().getId());
 			simpleItem(mat.getDust().getId());
@@ -203,5 +196,11 @@ public class NedaireItemModelProvider extends ItemModelProvider
 	private String name (String name)
 	{
 		return ModelProvider.ITEM_FOLDER + "/" + name;
+	}
+
+	@Override
+	public String getName() 
+	{
+		return "Nedaire Item Models";
 	}
 }
